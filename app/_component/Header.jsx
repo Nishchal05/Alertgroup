@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import PersonIcon from '@mui/icons-material/Person';
+import MenuIcon from '@mui/icons-material/Menu';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,8 +19,8 @@ const Header = () => {
     <header className="flex h-[60px] justify-between text-center items-center p-[12px]">
       
       <div className="text-xl font-bold">AlertGroup</div>
-
-      <div className="flex gap-6 items-center relative right-6">
+      <div className='md:hidden'><MenuIcon/></div>
+      <div className="hidden md:flex gap-6 items-center relative right-6 ">
         <Link href="/" className="hover:text-blue-600 transition-colors duration-300">
           Home
         </Link>
@@ -32,8 +33,6 @@ const Header = () => {
         <Link href="#" className="hover:text-blue-600 transition-colors duration-300">
           Contacts
         </Link>
-
-        {/* User Icon with Dropdown */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
