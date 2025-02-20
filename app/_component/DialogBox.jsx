@@ -42,7 +42,7 @@ const DialogBox = ({ Label, heading }) => {
   return (
     <Dialog>
       <DialogTrigger className="bg-red-600 text-white py-[2px] px-6 hover:bg-red-700 transition-all duration-300 rounded-lg">{Label}</DialogTrigger>
-      <DialogContent className="bg-transparent p-4 h-[95%]">
+      <DialogContent className="bg-black p-4 h-[95%]">
         <DialogHeader>
           <DialogTitle>{heading}</DialogTitle>
         </DialogHeader>
@@ -61,7 +61,7 @@ const DialogBox = ({ Label, heading }) => {
                     type="text"
                     name="fullName"
                     value={`${formData.firstName} ${formData.lastName}`}
-                    className="w-full px-4 py-2 border rounded-md"
+                    className="w-full px-4 py-2 border rounded-md bg-white"
                     disabled
                   />
                 </div>
