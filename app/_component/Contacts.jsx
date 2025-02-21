@@ -2,15 +2,15 @@ import React from "react";
 
 const Contacts = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6 gap-12 mt-10 sm:mt-[400px]">
+    <div id="Contacts" className="flex flex-col items-center justify-center p-6 gap-12 mt-24">
       <h1 className="text-3xl md:text-4xl">Let's Talk:</h1>
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl">
         <p className="text-lg md:text-3xl md:w-1/2">
           Let’s safeguard your future together. Contact us for cutting-edge
           security systems and personalized support.
         </p>
-        <form className="space-y-6 p-6 bg-white rounded-lg shadow-md w-full max-w-lg md:w-1/2">
-          <h1 className="text-black text-2xl">Talk To Us:</h1>
+        <form className="space-y-6 p-6 bg-black rounded-lg shadow-md w-full max-w-lg md:w-1/2 border border-gray-800">
+          <h1 className="text-white text-2xl">Talk To Us:</h1>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <label
@@ -23,7 +23,7 @@ const Contacts = () => {
                 type="text"
                 id="firstName"
                 name="firstName"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11"
+                className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 bg-black"
                 required
               />
             </div>
@@ -39,7 +39,7 @@ const Contacts = () => {
                 type="text"
                 id="lastName"
                 name="lastName"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11"
+                className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 bg-black"
                 required
               />
             </div>
@@ -56,7 +56,7 @@ const Contacts = () => {
               type="email"
               id="email"
               name="email"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11"
+              className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 bg-black"
               required
             />
           </div>
@@ -72,7 +72,7 @@ const Contacts = () => {
               type="tel"
               id="phone"
               name="phone"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11"
+              className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 bg-black"
               required
             />
           </div>
@@ -88,7 +88,7 @@ const Contacts = () => {
               type="text"
               id="company"
               name="company"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11"
+              className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 bg-black"
             />
           </div>
 
@@ -98,13 +98,13 @@ const Contacts = () => {
                 htmlFor="country"
                 className="block text-sm font-medium text-gray-700"
               >
-                United States
+                Canada Provinces
               </label>
               <input
                 type="text"
                 id="country"
                 name="country"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 sm:text-sm h-11"
+                className="mt-1 block w-full rounded-md border shadow-sm  sm:text-sm h-11 bg-black"
               />
             </div>
 
@@ -119,7 +119,7 @@ const Contacts = () => {
                 type="text"
                 id="state"
                 name="state"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11"
+                className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 bg-black"
                 required
               />
             </div>
@@ -135,7 +135,7 @@ const Contacts = () => {
                 type="text"
                 id="city"
                 name="city"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11"
+                className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 bg-black"
                 required
               />
             </div>
@@ -152,7 +152,7 @@ const Contacts = () => {
               id="assistance"
               name="assistance"
               rows="4"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-black"
               required
             />
           </div>
@@ -168,7 +168,7 @@ const Contacts = () => {
               type="text"
               id="duration"
               name="duration"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11"
+              className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 bg-black"
             />
           </div>
 
@@ -183,14 +183,14 @@ const Contacts = () => {
               id="additionalInfo"
               name="additionalInfo"
               rows="4"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-black"
             />
           </div>
 
           <div>
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="w-full py-2 px-4 bg-gray-700 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               Submit
             </button>

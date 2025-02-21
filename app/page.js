@@ -5,6 +5,7 @@ import CardSlider from "./_component/CardSlider";
 import Services from "./_component/Services";
 import AboutUs from "./_component/AboutUs";
 import Contacts from "./_component/Contacts";
+import Footer from "./_component/Footer";
 
 const Page = () => {
   return (
@@ -27,6 +28,7 @@ const Page = () => {
         <AboutUs />
         <Contacts />
       </div>
+      <Footer/>
     </div>
   );
 };

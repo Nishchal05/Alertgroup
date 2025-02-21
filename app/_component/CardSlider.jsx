@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import SecurityServices from "./_data/SecurityServices";
 
 const CardSlider = () => {
-  const [activeIndex, setActiveIndex] = useState(2); // Center card index
+  const [activeIndex, setActiveIndex] = useState(2);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % SecurityServices.length); // Loop through cards
-    }, 3000); // Change every 3 seconds
+      setActiveIndex((prevIndex) => (prevIndex + 1) % SecurityServices.length); 
+    }, 3000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -18,15 +18,15 @@ const CardSlider = () => {
 
     switch (position) {
       case 0:
-        return "translate-x-[-120%] scale-75 z-10 opacity-50"; // Far left
+        return "translate-x-[-200%] scale-75  opacity-50"; // Far left
       case 1:
-        return "translate-x-[-60%] scale-90 z-20 opacity-75"; // Left
+        return "translate-x-[-100%] scale-90  opacity-75"; // Left
       case 2:
-        return "translate-x-[0] scale-100 z-30"; // Center (active)
+        return "translate-x-[0] scale-100 "; // Center (active)
       case 3:
-        return "translate-x-[60%] scale-90 z-20 opacity-75"; // Right
+        return "translate-x-[100%] scale-90  opacity-75"; // Right
       case 4:
-        return "translate-x-[120%] scale-75 z-10 opacity-50"; // Far right
+        return "translate-x-[200%] scale-75  opacity-50"; // Far right
       default:
         return "";
     }
@@ -38,16 +38,13 @@ const CardSlider = () => {
         {SecurityServices.map((item, index) => (
           <div
             key={index}
-            className={`absolute w-[400px] h-auto bg-gradient-to-br from-gray-800 to-gray-600 text-white shadow-2xl rounded-lg flex flex-col items-center  text-xl font-semibold transition-transform duration-700 ease-in-out ${getCardStyle(index)}`}
+            className={`cursor-pointer absolute w-[400px] h-auto bg-gradient-to-br from-gray-800 to-gray-600 text-white shadow-2xl rounded-lg flex flex-col items-center  text-xl font-semibold transition-transform duration-700 ease-in-out ${getCardStyle(index)}`}
           >
             <img
               src={item.img}
               alt="security service"
               className="w-full h-[150px] rounded-t-lg"
             />
-            <div className=" text-center">
-              {item.ServiceName}
-            </div>
           </div>
         ))}
       </div>

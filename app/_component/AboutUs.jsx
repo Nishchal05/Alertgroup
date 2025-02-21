@@ -3,7 +3,7 @@ import { Chart } from "./Chart";
 
 const AboutUs = () => {
   return (
-    <div className="flex flex-col items-center min-h-screen justify-center gap-8 p-4 mt-24">
+    <div id="About" className="flex flex-col items-center min-h-screen justify-center gap-8 p-4 mt-24">
       <h2 className="text-4xl md:text-3xl text-center">Who We Are</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-5xl">
         <div className="bg-slate-500 rounded-xl h-64 md:h-auto"></div>

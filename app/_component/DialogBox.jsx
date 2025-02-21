@@ -8,6 +8,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
+import { JoinFull } from '@mui/icons-material';
 
 const DialogBox = ({ Label, heading }) => {
   const [next, setNext] = useState(0);
@@ -61,7 +62,7 @@ const DialogBox = ({ Label, heading }) => {
                     type="text"
                     name="fullName"
                     value={`${formData.firstName} ${formData.lastName}`}
-                    className="w-full px-4 py-2 border rounded-md bg-white"
+                    className="w-full px-4 py-2 border rounded-md bg-white text-black"
                     disabled
                   />
                 </div>
@@ -72,7 +73,7 @@ const DialogBox = ({ Label, heading }) => {
                     type="email"
                     name="email"
                     value={formData.email}
-                    className="w-full px-4 py-2 border rounded-md"
+                    className="w-full px-4 py-2 border rounded-md bg-white text-black"
                     disabled
                   />
                 </div>

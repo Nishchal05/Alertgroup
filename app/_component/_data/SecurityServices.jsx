@@ -1,23 +1,23 @@
 const SecurityServices = [
     {
-      img: '/CommercialSecurity.jpg',
-      ServiceName: 'Comercial Security Services1'
+      img: '/PrivateProtectionService.jpg',
+      ServiceName: 'Private Protection Bodyguard Services'
     },
     {
       img: '/CommercialSecurity.jpg',
-      ServiceName: 'Comercial Security Services2'
+      ServiceName: 'Mobile Security Patrols'
     },
     {
       img: '/CommercialSecurity.jpg',
-      ServiceName: 'Comercial Security Services3'
+      ServiceName: 'Patrolling'
     },
     {
       img: '/CommercialSecurity.jpg',
-      ServiceName: 'Comercial Security Services4'
+      ServiceName: 'Event Security Management'
     },
     {
       img: '/CommercialSecurity.jpg',
-      ServiceName: 'Comercial Security Services5'
+      ServiceName: 'Video Surveillances'
     }
   ];
   
