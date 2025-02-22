@@ -18,15 +18,15 @@ const CardSlider = () => {
 
     switch (position) {
       case 0:
-        return "translate-x-[-200%] scale-75  opacity-50"; // Far left
+        return "translate-x-[-200%] scale-75  opacity-50";
       case 1:
-        return "translate-x-[-100%] scale-90  opacity-75"; // Left
+        return "translate-x-[-100%] scale-90  opacity-75";
       case 2:
-        return "translate-x-[0] scale-100 "; // Center (active)
+        return "translate-x-[0] scale-100 "; 
       case 3:
-        return "translate-x-[100%] scale-90  opacity-75"; // Right
+        return "translate-x-[100%] scale-90  opacity-75"; 
       case 4:
-        return "translate-x-[200%] scale-75  opacity-50"; // Far right
+        return "translate-x-[200%] scale-75  opacity-50"; 
       default:
         return "";
     }

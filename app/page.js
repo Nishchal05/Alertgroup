@@ -15,15 +15,15 @@ const Page = () => {
         <img
           src="/hero-bg.jpg"
           alt="hero background"
-          className="h-[91.5vh] w-screen object-cover opacity-30"
+          className="h-[91.5vh] w-screen object-cover opacity-5"
         />
-        <div className="absolute top-[30%] flex flex-col items-center gap-4">
+        <div className="absolute top-[15%] gap-4">
           <Home />
         </div>
       </div>
 
       {/* Main Sections */}
-      <div className="flex flex-col gap-24 px-4 md:px-8 lg:px-16 py-12">
+      <div className="flex flex-col gap-24 px-4 mt-24 md:px-8 lg:px-16 py-12">
         <Services />
         <AboutUs />
         <Contacts />

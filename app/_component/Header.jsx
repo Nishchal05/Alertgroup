@@ -12,39 +12,47 @@ import {
 
 const Header = () => {
   return (
-    <header className=" flex h-[60px] justify-between text-center items-center p-[12px]">
-      <Link href='/' className=" flex items-center">
+    <header className="fixed top-0 left-0 w-full flex h-[60px] justify-between items-center p-[12px] backdrop-blur-md bg-black/50 z-50">
+      <Link href='/' className="flex items-center">
         <img src="/AlertGroup.png" alt="Alertgroup" width={60} />
-        <h1 className=" text-white text-2xl font-serif">Alert<span className=" text-yellow-500">Group</span></h1>
+        <h1 className="text-white text-2xl font-serif">
+          Alert<span className="text-yellow-500">Group</span>
+        </h1>
       </Link>
+
+      {/* Mobile Menu Icon */}
       <div className="md:hidden">
-        <MenuIcon />
+        <MenuIcon className="text-white" />
       </div>
-      <div className="hidden md:flex gap-6 items-center relative right-6 ">
+
+      {/* Navigation Links for larger screens */}
+      <div className="hidden md:flex gap-6 items-center relative right-6">
         <Link
           href="/"
-          className="hover:text-blue-600 transition-colors duration-300"
+          className="text-white hover:text-blue-600 transition-colors duration-300"
         >
           Home
         </Link>
         <Link
           href="#Services"
-          className="hover:text-blue-600 transition-colors duration-300"
+          className="text-white hover:text-blue-600 transition-colors duration-300"
         >
           What We Serve
         </Link>
         <Link
           href="#About"
-          className="hover:text-blue-600 transition-colors duration-300"
+          className="text-white hover:text-blue-600 transition-colors duration-300"
         >
           Who We Are
         </Link>
         <Link
           href="#Contacts"
-          className="hover:text-blue-600 transition-colors duration-300"
+          className="text-white hover:text-blue-600 transition-colors duration-300"
         >
           Contacts
         </Link>
+
+        {/* User Account Menu */}
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
