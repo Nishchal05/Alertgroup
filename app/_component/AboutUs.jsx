@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const AboutUs = () => {
   return (
-    <div id="About" className="flex flex-col items-center min-h-screen justify-center gap-8 p-4 mt-24">
+    <div id="About" className="flex flex-col items-center min-h-screen justify-center gap-8 p-4 mt-10">
       <h2 className="text-4xl md:text-3xl text-center">Who We Are</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-5xl">
@@ -15,17 +15,13 @@ const AboutUs = () => {
             <br /><br />
             We are dedicated to ensuring the safety of our clients at all times. Every individual and business deserves to feel safe and secure. We have assembled a team of trained security professionals ready to deliver their best in every aspect of their work. Whether you need personal protection, mobile security, or experienced individuals to manage and control events, we ensure smooth operation.
           </p>
-        </div>
-
-        {/* Placeholder or Background Section */}
-        <div className="bg-slate-500 h-[100%] rounded-xl flex items-center justify-center">
-          <span className="text-white text-lg">[Image/Graphic Placeholder]</span>
-        </div>
+        </div>        
+          <img src="/team.jpg" alt="team" className=" rounded-lg"/>
       </div>
 
       {/* Join Us and Let's Talk Buttons */}
       <div className="flex justify-evenly w-full mt-3 max-w-md">
-        <Link href="/" className="flex items-center gap-2 bg-red-600 p-2 rounded-xl transition-all duration-300 hover: hover:shadow-lg">
+        <Link href="/JoinPortal" className="flex items-center gap-2 bg-red-600 p-2 rounded-xl transition-all duration-300 hover: hover:shadow-lg">
           <Handshake className="text-white" />
           Join Us
         </Link>

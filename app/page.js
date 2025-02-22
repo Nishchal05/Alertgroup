@@ -23,7 +23,7 @@ const Page = () => {
       </div>
 
       {/* Main Sections */}
-      <div className="flex flex-col gap-24 px-4 mt-24 md:px-8 lg:px-16 py-12">
+      <div className="flex flex-col gap-14 px-4 mt-24 md:px-8 lg:px-16 py-12">
         <Services />
         <AboutUs />
         <Contacts />

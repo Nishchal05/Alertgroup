@@ -2,7 +2,7 @@ import React from "react";
 
 const Contacts = () => {
   return (
-    <div id="Contacts" className="flex flex-col items-center justify-center p-6 gap-12 mt-24">
+    <div id="Contacts" className="flex flex-col items-center justify-center p-6 gap-12 mt-10">
       <h1 className="text-3xl md:text-4xl">Let's Talk:</h1>
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl">
         <p className="text-lg md:text-3xl md:w-1/2">
