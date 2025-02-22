@@ -1,11 +1,16 @@
-import React from 'react'
+import Link from "next/link";
+import React from "react";
+import TouchAppIcon from "@mui/icons-material/TouchApp";
+import ApplyHeroSection from "./ApplyHeroSection";
+import Joblisting from "./Joblisting";
 
-const page = () => {
+const Page = () => {
   return (
-    <div className=' text-white'>
-page
+    <div>
+      <ApplyHeroSection/>
+      <Joblisting/>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default Page;
