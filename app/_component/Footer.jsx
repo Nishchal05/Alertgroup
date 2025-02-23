@@ -7,6 +7,7 @@ import {
   Twitter,
 } from "@mui/icons-material";
 import { Phone, PhoneCall } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -31,9 +32,9 @@ const Footer = () => {
         </div>
       </div>
       <div className=" flex gap-4 cursor-pointer">
-        <LinkedIn className=" hover:text-yellow-500" />
+        <Link href='https://www.linkedin.com/in/alertgroupsecurity?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'><LinkedIn className=" hover:text-yellow-500" /></Link>
         <Twitter className=" hover:text-yellow-500" />
-        <Instagram className=" hover:text-yellow-500" />
+        <Link href='https://www.instagram.com/alertgroup_security?igsh=MW45YnlxbnM5NmRqMw%3D%3D&utm_source=qr'><Instagram className=" hover:text-yellow-500" /></Link>
         <Facebook className=" hover:text-yellow-500" />
       </div>
     </footer>

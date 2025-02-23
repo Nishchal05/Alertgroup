@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const AboutUs = () => {
   return (
-    <div id="About" className="flex flex-col items-center min-h-screen justify-center gap-8 p-4">
+    <div id="About" className="flex flex-col items-center min-h-screen justify-center gap-8">
       <h2 className="text-4xl md:text-3xl text-center">Who We Are</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-5xl">

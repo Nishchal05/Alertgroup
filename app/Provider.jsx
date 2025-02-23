@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { DataContext } from '@/app/_component/context/data'; 
+import { DataContext } from '@/app/_component/context/Topbar'; 
 
 const DataProvider = ({ children }) => {
-  const [data1, setdata1] = useState([]);
+  const [data1, setdata1] = useState(true);
 
   return (
     // Providing the value (state and setter) to the children components

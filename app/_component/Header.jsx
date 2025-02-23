@@ -15,7 +15,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full flex h-[60px] justify-between items-center p-[12px] backdrop-blur-md bg-black/50 z-50">
       <Link href='/' className="flex items-center">
         <img src="/AlertGroup.png" alt="Alertgroup" width={60} />
-        <h1 className="text-white text-2xl font-serif">
+        <h1 className="text-white text-4xl font-serif">
           Alert<span className="text-yellow-500">Group</span>
         </h1>
       </Link>
@@ -26,28 +26,74 @@ const Header = () => {
       </div>
 
       {/* Navigation Links for larger screens */}
-      <div className="hidden md:flex gap-6 items-center relative right-6">
-        <Link
-          href="/"
-          className="text-white hover:text-blue-600 transition-colors duration-300"
-        >
-          Home
-        </Link>
-        <Link
-          href="#Services"
-          className="text-white hover:text-blue-600 transition-colors duration-300"
-        >
-          What We Serve
-        </Link>
-        <Link
-          href="#About"
-          className="text-white hover:text-blue-600 transition-colors duration-300"
-        >
-          Who We Are
-        </Link>
+      <div className="hidden md:flex gap-4 items-center relative right-6">
+      <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="bg-transparent p-2 rounded-full text-white text-md">
+                Security Services
+              </NavigationMenuTrigger>
+
+              <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
+                <div className="flex flex-col gap-2">
+                  <ul className=" w-64 text-white flex flex-col gap-2">
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Commercial Security Services</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Employee Termination</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Retail Loss Prevention</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Hospital Security Services</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Condo Security Services</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Dispensary Security</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Construction Site Security</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Cargo Escort Security</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Temporary Security Guards</li>
+                  </ul>
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="bg-transparent p-2 rounded-full text-white text-md">
+                Event Security Services
+              </NavigationMenuTrigger>
+
+              <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
+                <div className="flex flex-col gap-2">
+                  <ul className=" w-64 text-white flex flex-col gap-2">
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Concert Security</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Event Staffing Services</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Trade Show Security</li>
+                  </ul>
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="bg-transparent p-2 rounded-full text-white text-md">
+                Elite Security Services
+              </NavigationMenuTrigger>
+
+              <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
+                <div className="flex flex-col gap-2">
+                  <ul className=" w-64 text-white flex flex-col gap-2">
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Executive Security Services</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">VIP BodyGuard</li>
+                    <li className=" border rounded-lg p-3 cursor-pointer hover:bg-slate-700">Personal Security Services</li>
+
+                  </ul>
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         <Link
           href="#Contacts"
-          className="text-white hover:text-blue-600 transition-colors duration-300"
+          className="text-white hover:text-blue-600 transition-colors duration-300 text-md"
         >
           Contacts
         </Link>

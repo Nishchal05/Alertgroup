@@ -4,7 +4,7 @@ const Contacts = () => {
   return (
     <div
       id="Contacts"
-      className="flex flex-col items-center justify-center p-6 gap-12 mt-15"
+      className="flex flex-col items-center justify-center p-6 gap-12 mt-24"
     >
       <h1 className="text-3xl md:text-4xl">Let's Talk:</h1>
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-6xl">
