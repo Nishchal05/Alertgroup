@@ -8,8 +8,6 @@ import Footer from "./_component/Footer";
 import { DataContext } from "@/app/_component/context/Topbar"; 
 
 const Page = () => {
-  const { data1 } = useContext(DataContext); 
-
   return (
     <div className="relative">
       {/* Accordion Section */}
