@@ -43,7 +43,7 @@ const CardSlider = () => {
             <img
               src={item.img}
               alt="security service"
-              className="w-full h-[150px] rounded-t-lg"
+              className="w-full h-[230px] rounded-t-lg"
             />
           </div>
         ))}
