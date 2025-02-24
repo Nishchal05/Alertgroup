@@ -28,7 +28,7 @@ const Header = () => {
         <Link href="/" className="flex items-center">
           <img src="/AlertGroup.png" alt="Alertgroup" width={60} />
           <h1 className="text-white text-4xl font-serif">
-            Alert<span className="text-yellow-500">Group</span>
+            Alert<span className="text-blue-500">Group</span>
           </h1>
         </Link>
         <div className="md:hidden">

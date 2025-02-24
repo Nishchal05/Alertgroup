@@ -102,7 +102,7 @@ const DialogBox = ({ Label, Position, Responsibilties }) => {
                   type="button"
                   onClick={handleNextStep}
                   className="py-2 px-4 bg-green-600 text-white font-medium rounded-md hover:bg-green-700"
-                  disabled={!accept} // Disable next button until terms are accepted
+                  disabled={!accept}
                 >
                   Next
                 </Button>
