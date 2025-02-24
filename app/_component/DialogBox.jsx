@@ -48,7 +48,7 @@ const DialogBox = ({ Label, Position, Responsibilties }) => {
 
   return (
     <Dialog>
-      <DialogTrigger className="bg-red-600 text-white py-[2px] px-6 hover:bg-red-700 transition-all duration-300 rounded-lg">
+      <DialogTrigger className=" bg-blue-600 text-white py-[2px] px-6 hover:bg-blue-700 transition-all duration-300 rounded-lg">
         {Label}
       </DialogTrigger>
       <DialogContent className="bg-black p-4 h-[95%]">
