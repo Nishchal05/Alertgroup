@@ -12,6 +12,12 @@ import {
 } from "@/components/ui/navigation-menu";
 import { DataContext } from "./context/Topbar";
 import { Close } from "@mui/icons-material";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Header = () => {
   const { laptopview, setmobileview } = useContext(DataContext);
@@ -176,23 +182,99 @@ const Header = () => {
 
       {/* Mobile Menu Covering Full Page */}
       {!laptopview && (
-        <div className="fixed inset-0 bg-black z-40 w-full h-full flex flex-col text-white">
-          <div className="flex justify-end p-4">
-            <Close
-              className="text-white text-2xl cursor-pointer"
-              onClick={() => setmobileview(true)}
-              aria-label="Close menu"
-            />
-          </div>
-          <ul className="flex flex-col gap-6 text-center mt-8 text-lg">
-            <li className="cursor-pointer">Security Services</li>
-            <li className="cursor-pointer">Event Security Services</li>
-            <li className="cursor-pointer">Elite Security Services</li>
-            <li className="cursor-pointer">Contacts</li>
-            <li className="cursor-pointer">Sign In</li>
-          </ul>
-        </div>
-      )}
+  <div className="fixed inset-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black z-40 w-full h-full flex flex-col text-white">
+    <div className="flex justify-end p-4">
+      <Close
+        className="text-white text-3xl cursor-pointer hover:text-red-500 transition duration-300"
+        onClick={() => setmobileview(true)}
+        aria-label="Close menu"
+      />
+    </div>
+    <ul className="flex flex-col gap-8 text-center mt-12 text-lg">
+      <li>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
+              Security Services
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul className="w-72 text-white flex flex-col gap-4 mt-4">
+                {[
+                  'Commercial Security Services',
+                  'Employee Termination',
+                  'Retail Loss Prevention',
+                  'Hospital Security Services',
+                  'Condo Security Services',
+                  'Dispensary Security',
+                  'Construction Site Security',
+                  'Cargo Escort Security',
+                  'Temporary Security Guards',
+                ].map((service) => (
+                  <li
+                    key={service}
+                    className="border rounded-lg p-4 cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-lg"
+                  >
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </li>
+      <li>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
+              Event Security Services
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul className="w-72 text-white flex flex-col gap-4 mt-4">
+                {['Concert Security', 'Event Staffing Services', 'Trade Show Security'].map(
+                  (service) => (
+                    <li
+                      key={service}
+                      className="border rounded-lg p-4 cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-lg"
+                    >
+                      {service}
+                    </li>
+                  )
+                )}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </li>
+      <li>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
+              Elite Security Services
+            </AccordionTrigger>
+            <AccordionContent>
+              <ul className="w-72 text-white flex flex-col gap-4 mt-4">
+                {['Executive Security Services', 'VIP BodyGuard', 'Personal Security Services'].map(
+                  (service) => (
+                    <li
+                      key={service}
+                      className="border rounded-lg p-4 cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-lg"
+                    >
+                      {service}
+                    </li>
+                  )
+                )}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </li>
+      <li className="text-2xl font-semibold cursor-pointer hover:text-blue-400 transition-colors duration-300">
+        Contacts
+      </li>
+    </ul>
+  </div>
+)}
+
     </div>
   );
 };
