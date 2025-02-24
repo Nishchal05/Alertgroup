@@ -17,16 +17,16 @@ const Footer = () => {
         <div className=" flex items-center cursor-pointer">
           <img src="/AlertGroup.png" alt="AlertGroup" width={100}/>
           <h1 className="text-2xl md:text-6xl font-serif">
-            Alert<span className=" text-yellow-500">Group</span>
+            Alert<span className=" text-blue-500">Group</span>
           </h1>
         </div>
         <div className=" flex flex-col gap-2">
           <p className=" flex gap-2">
-            <PhoneCall className=" text-yellow-500"/>
+            <PhoneCall className=" text-blue-500"/>
             Phone: xxxxxxxxx
           </p>
           <p className=" flex gap-2">
-            <Email className=" text-yellow-500"/>
+            <Email className=" text-blue-500"/>
             Email: admin@alertgroup.ca
           </p>
         </div>

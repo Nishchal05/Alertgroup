@@ -1,7 +1,9 @@
 import NextAuth from "next-auth"
  import Google from "next-auth/providers/google"
- import Facebook from "next-auth/providers/facebook"
  import Credentials from "next-auth/providers/credentials"
+ import DBConnect from "@/lib/Database"
+import UserModel from "@/app/Modal/User"
+import bcrypt from 'bcryptjs'
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [Google({
     clientId:process.env.AUTH_GOOGLE_ID,
@@ -14,15 +16,26 @@ Credentials({
     Password: {label: "Password", type: "password" },
   },
   authorize: async (credentials) => {
-    let user = null
-
-    const pwHash = saltAndHashPassword(credentials.password)
-    user = await getUserFromDb(credentials.email, pwHash)
-
-    if (!user) {
-      throw new Error("Invalid credentials.")
+    await DBConnect();
+    const user = await UserModel.findOne({
+      $or:[{
+        email:credentials.identifier,
+      },{
+        name:credentials.identifier
+      }]
+    })
+    if(!user){
+      console.error('user not found')
     }
-    return user
+    if(!user.isVerified){
+      console.error('verify user account before login')
+    }
+    const ispasswordcorrect=await bcrypt.compare(credentials.Password,user.password);
+    if(ispasswordcorrect){
+      return user
+    }else{
+      console.error('incorrect password')
+    }
   },
 })],
 })
