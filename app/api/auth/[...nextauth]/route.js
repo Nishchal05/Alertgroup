@@ -1,2 +1,3 @@
-import { handlers } from "@/configuration/auth" // Referring to the auth.ts we just created
-export const { GET, POST } = handlers
+import { handler } from "@/configuration/auth";
+
+export { handler as GET, handler as POST };

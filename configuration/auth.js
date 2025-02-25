@@ -5,7 +5,7 @@ import DBConnect from "@/lib/Database";
 import UserModel from "@/app/Modal/User";
 import bcrypt from 'bcryptjs';
 
-export default NextAuth({
+const options = {
   providers: [
     GoogleProvider({
       clientId: process.env.AUTH_GOOGLE_ID,
@@ -19,8 +19,6 @@ export default NextAuth({
       },
       authorize: async (credentials) => {
         await DBConnect();
-
-        // Find user by email or name
         const user = await UserModel.findOne({
           $or: [
             { email: credentials.identifier },
@@ -41,15 +39,10 @@ export default NextAuth({
           throw new Error('Incorrect password');
         }
 
-        // Return the user object if login is successful
         return user;
       },
     }),
   ],
-  pages: {
-    signIn: '/auth/signin', 
-    error: '/auth/error',  
-  },
   session: {
     strategy: 'jwt',
   },
@@ -67,4 +60,6 @@ export default NextAuth({
       return session;
     },
   },
-});
+};
+
+export const handler = NextAuth(options);
