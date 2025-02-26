@@ -16,26 +16,26 @@ const Footer = () => {
       <div className=" flex flex-col gap-4 items-center">
         <div className=" flex items-center cursor-pointer">
           <img src="/AlertGroup.png" alt="AlertGroup" width={100}/>
-          <h1 className="text-2xl md:text-6xl font-serif">
+          <h1 className="text-4xl md:text-6xl font-serif">
             Alert<span className=" text-blue-500">Group</span>
           </h1>
         </div>
         <div className=" flex flex-col gap-2">
-          <p className=" flex gap-2">
+          <p className=" flex gap-2 text-lg">
             <PhoneCall className=" text-blue-500"/>
             Phone: xxxxxxxxx
           </p>
-          <p className=" flex gap-2">
+          <p className=" flex gap-2 text-lg">
             <Email className=" text-blue-500"/>
             Email: admin@alertgroup.ca
           </p>
         </div>
       </div>
       <div className=" flex gap-4 cursor-pointer">
-        <Link href='https://www.linkedin.com/in/alertgroupsecurity?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'><LinkedIn className=" hover:text-yellow-500" /></Link>
-        <Twitter className=" hover:text-yellow-500" />
-        <Link href='https://www.instagram.com/alertgroup_security?igsh=MW45YnlxbnM5NmRqMw%3D%3D&utm_source=qr'><Instagram className=" hover:text-yellow-500" /></Link>
-        <Facebook className=" hover:text-yellow-500" />
+        <Link href='https://www.linkedin.com/in/alertgroupsecurity?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'><LinkedIn className=" font-medium hover:text-blue-500" /></Link>
+        <Twitter className=" hover:text-blue-500" />
+        <Link href='https://www.instagram.com/alertgroup_security?igsh=MW45YnlxbnM5NmRqMw%3D%3D&utm_source=qr'><Instagram className=" hover:text-blue-500" /></Link>
+        <Facebook className=" hover:text-blue-500" />
       </div>
     </footer>
   );
