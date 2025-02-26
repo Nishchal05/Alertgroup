@@ -28,7 +28,7 @@ const Header = () => {
         <div className="md:hidden">
           {laptopview ? (
             <MenuIcon
-              className="text-white"
+              className="text-blue-500"
               onClick={() => setmobileview(false)}
               aria-label="Open menu"
             />
