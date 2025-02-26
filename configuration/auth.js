@@ -1,65 +1,92 @@
-import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import DBConnect from "@/lib/Database";
-import UserModel from "@/app/Modal/User";
+import UserModel from "@/app/models/User";
 import bcrypt from 'bcryptjs';
-
-const options = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.AUTH_GOOGLE_ID,
-      clientSecret: process.env.AUTH_GOOGLE_SECRET
-    }),
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        identifier: { label: 'Email or Username', placeholder: 'example@gmail.com', type: 'text' },
-        password: { label: "Password", type: "password" },
-      },
-      authorize: async (credentials) => {
-        await DBConnect();
-        const user = await UserModel.findOne({
-          $or: [
-            { email: credentials.identifier },
-            { name: credentials.identifier }
-          ]
-        });
-
-        if (!user) {
-          throw new Error('User not found');
-        }
-
-        if (!user.isVerified) {
-          throw new Error('Please verify your account before logging in');
-        }
-
-        const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
-        if (!isPasswordCorrect) {
-          throw new Error('Incorrect password');
-        }
-
-        return user;
-      },
-    }),
-  ],
-  session: {
+import NextAuth from "next-auth"
+ 
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [GoogleProvider({
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  }),
+  CredentialsProvider({
+    name: "Credentials",
+    credentials: {
+      email: { label: 'Email or Username', placeholder: 'example@gmail.com', type: 'text' },
+      password: { label: "Password", type: "password" },
+    },
+    authorize: async (credentials) => {
+      await DBConnect();
+      
+      const user = await UserModel.findOne({
+        $or: [
+          { email: credentials.email },
+          { name: credentials.email }
+        ]
+      });
+    
+      if (!user) {
+        throw new Error('User not found');
+      }
+    
+      // Check if the user is verified
+      if (!user.isVerified) {
+        throw new Error('Please verify your account before logging in');
+      }
+    
+      // Check the password
+      const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
+      if (!isPasswordCorrect) {
+        throw new Error('Incorrect password');
+      }
+    
+      // Return the user object
+      return user;
+    }
+    
+  }),
+],
+session: {
     strategy: 'jwt',
   },
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        token.isVerified = user.isVerified;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      session.user.id = token.id;
-      session.user.isVerified = token.isVerified;
-      return session;
-    },
+  pages: {
+    signIn: "/auth/sign-in",
+    signUp: "/auth/sign-up",
   },
-};
+ callbacks: {
+  async jwt({ token, user, account, profile }) {
+    if (account && account.provider === 'google') {
+      await DBConnect();
 
-export const handler = NextAuth(options);
+      // Find the user by their email
+      let existingUser = await UserModel.findOne({ email: profile.email });
+
+      if (!existingUser) {
+        // Create a new user without a password for Google OAuth
+        const newUser = new UserModel({
+          name: profile.name,
+          email: profile.email,
+          image: profile.picture || '',
+          googleId: account.providerAccountId, // Only set googleId for OAuth users
+          isVerified: true,
+        });
+
+        existingUser = await newUser.save();
+      }
+
+      token.id = existingUser._id;
+      token.isVerified = true;
+    }
+
+    return token;
+  },
+
+  async session({ session, token }) {
+    session.user.id = token.id;
+    session.user.isVerified = token.isVerified;
+    return session;
+  },
+},
+
+})

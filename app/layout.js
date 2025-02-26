@@ -2,6 +2,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./_component/Header";
 import DataProvider from "./Provider"; 
+import { Toaster } from "@/components/ui/sonner"
+import { SessionProvider } from "next-auth/react";
+
  // Correct path to your DataProvider
 
 const geistSans = Geist({
@@ -26,9 +29,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <DataProvider>
-          <Header />
-          {children}
+        <SessionProvider><Header />
+          {children}</SessionProvider>
+          
         </DataProvider>
+        <Toaster />
       </body>
     </html>
   );
