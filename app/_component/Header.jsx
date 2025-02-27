@@ -9,7 +9,7 @@ import { DataContext } from "./context/Topbar";
 import { Close } from "@mui/icons-material";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { EliteSecurityServices, EventSecurityServices, SecurityList } from "./_data/SecurityList";
-
+import { ScrollArea } from "@/components/ui/scroll-area"
 const Header = () => {
   const { laptopview, setmobileview } = useContext(DataContext);
   const session = useSession();
@@ -147,7 +147,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {!laptopview && (
-        <div className="fixed inset-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black z-40 w-full h-full flex flex-col text-white p-6">
+        <div className="fixed inset-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black z-40 w-full h-screen flex flex-col text-white p-6">
           <div className="flex justify-end p-4">
             <Close className="text-white text-3xl cursor-pointer hover:text-red-500 transition duration-300" onClick={() => setmobileview(true)} aria-label="Close menu" />
           </div>
@@ -162,11 +162,12 @@ const Header = () => {
                   </AccordionTrigger>
                   <AccordionContent>
                     <ul className="w-72 text-white flex flex-col gap-4 mt-4">
-                      {SecurityList.map((service) => (
-                        <li key={service.name} className="border rounded-lg p-4 cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-lg">
+                    <ScrollArea className="h-[200px] w-[300px] rounded-md border p-4">{SecurityList.map((service) => (
+                        <li key={service.name} className="border rounded-lg p-4 cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-lg mt-2">
                           {service.name}
                         </li>
-                      ))}
+                      ))}</ScrollArea>
+                      
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
@@ -215,7 +216,7 @@ const Header = () => {
 
             {/* Contacts */}
             <li>
-              <Link href="/Contacts" className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
+              <Link href="/Contacts" className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300" onClick={()=>{setmobileview(true)}}>
                 Contacts
               </Link>
             </li>
@@ -223,22 +224,24 @@ const Header = () => {
             {/* User Account */}
             <li className="flex flex-col gap-4 items-center">
               {session?.data?.user ? (
-                <Link href="/" onClick={() => signOut()} className="text-lg rounded-lg cursor-pointer hover:text-blue-400 text-white">
+                <div><Link href="/" onClick={() => {signOut()
+                setmobileview(true)}}  className="text-lg rounded-lg cursor-pointer hover:text-blue-400 text-white">
                   LogOut
-                </Link>
+                </Link><Link href="/profile" onClick={()=>{setmobileview(true)}} className="text-lg hover:underline">
+                Profile
+              </Link></div>
+                
               ) : (
                 <div className="flex flex-col items-center gap-4 h-fit">
-                  <Link href="/auth/sign-in" className="text-lg font-semibold hover:text-blue-400 transition-colors duration-300">
+                  <Link href="/auth/sign-in" onClick={()=>{setmobileview(true)}} className="text-lg font-semibold hover:text-blue-400 transition-colors duration-300">
                     LogIn
                   </Link>
-                  <Link href="/auth/sign-up" className="text-lg font-semibold hover:text-blue-400 transition-colors duration-300">
+                  <Link href="/auth/sign-up" onClick={()=>{setmobileview(true)}} className="text-lg font-semibold hover:text-blue-400 transition-colors duration-300">
                     SignUp
                   </Link>
                 </div>
               )}
-              <Link href="/profile" className="text-lg hover:underline">
-                Profile
-              </Link>
+              
             </li>
           </ul>
         </div>

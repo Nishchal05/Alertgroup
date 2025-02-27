@@ -25,7 +25,7 @@ const AboutUs = () => {
           <Handshake className="text-white" />
           Join Us
         </Link>
-        <Link href="#Contacts" className="flex items-center gap-2 p-2 bg-blue-600 text-white rounded-xl transition-all duration-300 hover:shadow-lg">
+        <Link href="Contacts" className="flex items-center gap-2 p-2 bg-blue-600 text-white rounded-xl transition-all duration-300 hover:shadow-lg">
           <TaskAlt className="text-white"/>
           Let's Talk
         </Link>

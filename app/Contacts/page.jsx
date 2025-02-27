@@ -70,10 +70,10 @@ const Contacts = () => {
 
         {/* Right Section - Contact Form */}
         <form className="space-y-6 p-8 bg-black rounded-lg shadow-2xl w-full max-w-lg md:w-1/2 border border-gray-300">
-          <h1 className="text-gray-800 text-2xl font-semibold">Talk To Us:</h1>
+          <h1 className="text-2xl font-semibold">Talk To Us:</h1>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <InputField label="First Name" className=' bg-gray-900 text-white' id="firstName" required />
-            <InputField label="Last Name" className=' bg-gray-900 text-white' id="lastName" required />
+            <InputField label="First Name" id="firstName" required />
+            <InputField label="Last Name" id="lastName" required />
           </div>
 
           <InputField label="Business Email Address" id="email" type="email" required />
