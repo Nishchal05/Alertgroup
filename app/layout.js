@@ -4,6 +4,7 @@ import Header from "./_component/Header";
 import DataProvider from "./Provider"; 
 import { Toaster } from "@/components/ui/sonner"
 import { SessionProvider } from "next-auth/react";
+import Footer from "./_component/Footer";
 
  // Correct path to your DataProvider
 
@@ -30,7 +31,8 @@ export default function RootLayout({ children }) {
       >
         <DataProvider>
         <SessionProvider><Header />
-          {children}</SessionProvider>
+          {children}
+          <Footer/></SessionProvider>
           
         </DataProvider>
         <Toaster />

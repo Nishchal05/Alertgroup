@@ -3,17 +3,12 @@ import React, { useContext } from "react";
 import Home from "./_component/Home";
 import Services from "./_component/Services";
 import AboutUs from "./_component/AboutUs";
-import Contacts from "./_component/Contacts";
 import Footer from "./_component/Footer";
-import { DataContext } from "@/app/_component/context/Topbar"; 
 import { Crimedata } from "./_component/Crimedata";
 
 const Page = () => {
   return (
     <div className="relative">
-      {/* Accordion Section */}
-      
-
       {/* Hero Section */}
       <div className="relative">
         <img
@@ -32,8 +27,6 @@ const Page = () => {
         <AboutUs />
         <Crimedata/>
       </div>
-
-      <Footer />
     </div>
   );
 };

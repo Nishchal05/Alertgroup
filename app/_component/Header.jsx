@@ -107,7 +107,7 @@ const Header = () => {
           </NavigationMenu>
 
           {/* Contacts Link */}
-          <Link href="#Contacts" className="text-white hover:text-blue-600 transition-colors duration-300 text-md">
+          <Link href="/Contacts" className="text-white hover:text-blue-600 transition-colors duration-300 text-md">
             Contacts
           </Link>
 
@@ -215,7 +215,7 @@ const Header = () => {
 
             {/* Contacts */}
             <li>
-              <Link href="#Contacts" className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
+              <Link href="/Contacts" className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
                 Contacts
               </Link>
             </li>
