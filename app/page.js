@@ -6,6 +6,7 @@ import AboutUs from "./_component/AboutUs";
 import Contacts from "./_component/Contacts";
 import Footer from "./_component/Footer";
 import { DataContext } from "@/app/_component/context/Topbar"; 
+import { Crimedata } from "./_component/Crimedata";
 
 const Page = () => {
   return (
@@ -29,7 +30,7 @@ const Page = () => {
       <div className="flex flex-col px-4 md:px-8 lg:px-16 py-12">
         <Services />
         <AboutUs />
-        <Contacts />
+        <Crimedata/>
       </div>
 
       <Footer />

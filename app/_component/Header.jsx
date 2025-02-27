@@ -40,7 +40,6 @@ const Header = () => {
             />
           )}
         </div>
-
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-4 items-center relative right-6">
           {/* Security Services */}
@@ -64,7 +63,6 @@ const Header = () => {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-
           {/* Event Security Services */}
           <NavigationMenu>
             <NavigationMenuList>
@@ -86,7 +84,6 @@ const Header = () => {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-
           {/* Elite Security Services */}
           <NavigationMenu>
             <NavigationMenuList>
