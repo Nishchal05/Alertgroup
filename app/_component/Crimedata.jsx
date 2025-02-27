@@ -36,7 +36,7 @@ const chartConfig = {
 
 export function Crimedata() {
   return (
-    <div className="h-screen w-full flex flex-col items-center justify-center p-6  text-white">
+    <div className="h-screen w-full flex flex-col items-center justify-center p-6  text-white mt-24">
       <div className="text-center mb-6">
         <h1 className="text-4xl font-bold">Why Choose Us?</h1>
         <p className="text-lg text-gray-400 mt-2">We provide reliable services based on data-driven insights to help improve safety and security.</p>
@@ -44,11 +44,11 @@ export function Crimedata() {
       
       <Card className="h-auto w-full max-w-4xl bg-black shadow-lg rounded-lg overflow-hidden"> 
         <CardHeader className="border-b border-gray-700 pb-4">
-          <CardTitle className="text-2xl">Crime Severity Index (CSI)</CardTitle>
+          <CardTitle className="text-lg text-white md:text-2xl">Crime Severity Index (CSI)</CardTitle>
           <CardDescription className="text-gray-400">Yearly Data from 2017 - 2023</CardDescription>
         </CardHeader>
 
-        <CardContent className="h-96 p-6">
+        <CardContent className="h-100 p-6 md:h-96">
           {/* Ensure ChartContainer is properly used here */}
           <ChartContainer config={chartConfig} className="h-full w-full">
             <ResponsiveContainer width="100%" height="100%">
