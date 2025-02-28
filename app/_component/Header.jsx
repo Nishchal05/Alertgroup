@@ -121,9 +121,12 @@ const Header = () => {
                 <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
                   <div className="flex flex-col gap-2 w-fit">
                     {session?.data?.user ? (
-                      <Link href="/" onClick={() => signOut()} className="text-sm rounded-lg cursor-pointer hover:text-blue-500 text-white">
+                      <div><Link href="/" onClick={() => signOut()} className="text-sm rounded-lg cursor-pointer hover:text-blue-500 text-white">
                         LogOut
-                      </Link>
+                      </Link><Link href="/logout" className="text-black hover:underline">
+                      Profile
+                    </Link></div>
+                      
                     ) : (
                       <div className="flex flex-col items-center gap-4 h-fit">
                         <Link href="/auth/sign-in" className="text-sm font-semibold hover:text-blue-400 transition-colors duration-300 text-white">
@@ -134,9 +137,7 @@ const Header = () => {
                         </Link>
                       </div>
                     )}
-                    <Link href="/logout" className="text-black hover:underline">
-                      Profile
-                    </Link>
+                    
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>

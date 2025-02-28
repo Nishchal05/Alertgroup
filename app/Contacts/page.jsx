@@ -1,10 +1,69 @@
+"use client"
 import { Instagram, LinkedIn, Twitter } from "@mui/icons-material";
-import React from "react";
-
+import React, { useState,useContext } from "react";
+import { DataContext } from "../_component/context/Topbar";
+import { useSession } from "next-auth/react";
 const Contacts = () => {
+  const { userdata } = useContext(DataContext);
+const UserId = userdata?.data?._id;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(data); 
+
+    try {
+      const res = await fetch('/api/ContactsDetails', {
+        method: 'POST',
+        body: JSON.stringify(data,UserId),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        alert('Form submitted successfully!');
+        setData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          company: '',
+          canadaProvinces: '',
+          state: '',
+          city: '',
+          assistance: '',
+          duration: '',
+          additionalInfo: '',
+        });
+      } else {
+        alert('Error submitting form: ' + result.message);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Error submitting the form. Please try again later.');
+    }
+  };
+  const [data, setData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    canadaProvinces: '',
+    state: '',
+    city: '',
+    assistance: '',
+    duration: '',
+    additionalInfo: '',
+  });
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+
   return (
     <div className="flex flex-col items-center justify-center p-6 gap-12 mt-24 min-h-screen">
-      
       {/* Call to Action Banner */}
       <div className="bg-blue-600 text-white py-6 px-10 rounded-lg shadow-xl max-w-3xl text-center">
         <h2 className="text-3xl font-bold">
@@ -17,7 +76,6 @@ const Contacts = () => {
 
       {/* Main Section */}
       <div className="flex flex-col md:flex-row gap-12 w-full max-w-6xl">
-
         {/* Left Section - Contact Info */}
         <div className="space-y-8 text-gray-700 md:w-1/2">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white">
@@ -26,7 +84,6 @@ const Contacts = () => {
           <p className="text-lg md:text-2xl text-white">
             Let’s safeguard your future together. Contact us for cutting-edge security systems and personalized support.
           </p>
-
           <img src="/contact.webp" alt="ContactPic" className="rounded-lg shadow-lg" />
 
           {/* Contact Information */}
@@ -69,26 +126,26 @@ const Contacts = () => {
         </div>
 
         {/* Right Section - Contact Form */}
-        <form className="space-y-6 p-8 bg-black rounded-lg shadow-2xl w-full max-w-lg md:w-1/2 border border-gray-300">
+        <form className="space-y-6 p-8 bg-black rounded-lg shadow-2xl w-full max-w-lg md:w-1/2 border border-gray-300" onSubmit={handleSubmit}>
           <h1 className="text-2xl font-semibold">Talk To Us:</h1>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <InputField label="First Name" id="firstName" required />
-            <InputField label="Last Name" id="lastName" required />
+            <InputField label="First Name" id="firstName" required onChange={handleChange} />
+            <InputField label="Last Name" id="lastName" required onChange={handleChange} />
           </div>
 
-          <InputField label="Business Email Address" id="email" type="email" required />
-          <InputField label="Phone Number" id="phone" type="tel" required />
-          <InputField label="Company Name" id="company" />
+          <InputField label="Business Email Address" id="email" type="email" required onChange={handleChange} />
+          <InputField label="Phone Number" id="phone" type="tel" required onChange={handleChange} />
+          <InputField label="Company Name" id="company" onChange={handleChange} />
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <InputField label="Canada Provinces" id="country" />
-            <InputField label="State" id="state" required />
-            <InputField label="City" id="city" required />
+            <InputField label="Canada Provinces" id="canadaProvinces" onChange={handleChange} />
+            <InputField label="State" id="state" required onChange={handleChange} />
+            <InputField label="City" id="city" required onChange={handleChange} />
           </div>
 
-          <TextAreaField label="How can we assist you today?" id="assistance" required />
-          <InputField label="Duration of Services" id="duration" />
-          <TextAreaField label="Additional Information" id="additionalInfo" />
+          <TextAreaField label="How can we assist you today?" id="assistance" required onChange={handleChange} />
+          <InputField label="Duration of Services" id="duration" onChange={handleChange} />
+          <TextAreaField label="Additional Information" id="additionalInfo" onChange={handleChange} />
 
           <button
             type="submit"
@@ -103,7 +160,7 @@ const Contacts = () => {
 };
 
 // Input Field Component
-const InputField = ({ label, id, type = "text", required }) => (
+const InputField = ({ label, id, type = "text", required, onChange }) => (
   <div>
     <label htmlFor={id} className="block text-sm font-medium text-gray-600">
       {label}
@@ -113,13 +170,14 @@ const InputField = ({ label, id, type = "text", required }) => (
       id={id}
       name={id}
       required={required}
+      onChange={onChange}
       className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm h-11 transition duration-300 ease-in-out"
     />
   </div>
 );
 
 // Text Area Field Component
-const TextAreaField = ({ label, id, required }) => (
+const TextAreaField = ({ label, id, required, onChange }) => (
   <div>
     <label htmlFor={id} className="block text-sm font-medium text-gray-600">
       {label}
@@ -129,6 +187,7 @@ const TextAreaField = ({ label, id, required }) => (
       name={id}
       rows="4"
       required={required}
+      onChange={onChange}
       className="mt-1 block w-full rounded-lg border border-gray-300 bg-white text-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm transition duration-300 ease-in-out"
     />
   </div>

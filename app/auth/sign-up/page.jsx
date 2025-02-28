@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
-import { motion } from "framer-motion";
 import Link from "next/link"; 
 import { Loader } from "lucide-react"; 
 import { toast } from "sonner";
@@ -29,8 +28,9 @@ const Signup = () => {
       
       if (res.status === 201) {
         toast("Check Your Mail to Verify")
-        router.push("/");
+        router.push("/auth/sign-in");
       } else {
+        toast(data.message)
         setError(data.message);
       }
     } catch (error) {
