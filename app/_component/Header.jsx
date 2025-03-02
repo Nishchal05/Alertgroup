@@ -148,104 +148,142 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {!laptopview && (
-        <div className="fixed inset-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black z-40 w-full h-screen flex flex-col text-white p-6">
-          <div className="flex justify-end p-4">
-            <Close className="text-white text-3xl cursor-pointer hover:text-red-500 transition duration-300" onClick={() => setmobileview(true)} aria-label="Close menu" />
-          </div>
+        <div className="fixed inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 z-40 w-full h-screen flex flex-col text-white p-6">
+  <ul className="flex flex-col gap-6 text-center mt-12 text-lg">
+    {/* Security Services */}
+    <li>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1">
+          <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
+            Security Services
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul className="w-full text-white flex flex-col gap-4 mt-4">
+              <ScrollArea className="h-[220px] w-full rounded-md border border-gray-600 p-4 bg-gray-900">
+                {SecurityList.map((service) => (
+                  <li
+                    key={service.name}
+                    className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                  >
+                    {service.name}
+                  </li>
+                ))}
+              </ScrollArea>
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </li>
 
-          <ul className="flex flex-col gap-8 text-center mt-12 text-lg">
-            {/* Security Services */}
-            <li>
-              <Accordion type="single" collapsible>
-                <AccordionItem value="item-1">
-                  <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
-                    Security Services
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ul className="w-72 text-white flex flex-col gap-4 mt-4">
-                    <ScrollArea className="h-[200px] w-[300px] rounded-md border p-4">{SecurityList.map((service) => (
-                        <li key={service.name} className="border rounded-lg p-4 cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-lg mt-2">
-                          {service.name}
-                        </li>
-                      ))}</ScrollArea>
-                      
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </li>
+    {/* Event Security Services */}
+    <li>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-2">
+          <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
+            Event Security Services
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul className="w-full text-white flex flex-col gap-4 mt-4">
+              {EventSecurityServices.map((service) => (
+                <li
+                  key={service.name}
+                  className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                >
+                  {service.name}
+                </li>
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </li>
 
-            {/* Event Security Services */}
-            <li>
-              <Accordion type="single" collapsible>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
-                    Event Security Services
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ul className="w-72 text-white flex flex-col gap-4 mt-4">
-                      {EventSecurityServices.map((service) => (
-                        <li key={service.name} className="border rounded-lg p-4 cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-lg">
-                          {service.name}
-                        </li>
-                      ))}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </li>
+    {/* Elite Security Services */}
+    <li>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-3">
+          <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
+            Elite Security Services
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul className="w-full text-white flex flex-col gap-4 mt-4">
+              {EliteSecurityServices.map((service) => (
+                <li
+                  key={service.name}
+                  className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                >
+                  {service.name}
+                </li>
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </li>
 
-            {/* Elite Security Services */}
-            <li>
-              <Accordion type="single" collapsible>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300">
-                    Elite Security Services
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ul className="w-72 text-white flex flex-col gap-4 mt-4">
-                      {EliteSecurityServices.map((service) => (
-                        <li key={service.name} className="border rounded-lg p-4 cursor-pointer bg-gray-800 hover:bg-gray-700 transition-all duration-300 shadow-lg">
-                          {service.name}
-                        </li>
-                      ))}
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </li>
+    {/* Contacts */}
+    <li>
+      <Link
+        href="/Contacts"
+        className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300"
+        onClick={() => {
+          setmobileview(true);
+        }}
+      >
+        Contacts
+      </Link>
+    </li>
 
-            {/* Contacts */}
-            <li>
-              <Link href="/Contacts" className="text-2xl font-semibold hover:text-blue-400 transition-colors duration-300" onClick={()=>{setmobileview(true)}}>
-                Contacts
-              </Link>
-            </li>
-
-            {/* User Account */}
-            <li className="flex flex-col gap-4 items-center">
-              {session?.data?.user ? (
-                <div><Link href="/" onClick={() => {signOut()
-                setmobileview(true)}}  className="text-lg rounded-lg cursor-pointer hover:text-blue-400 text-white">
-                  LogOut
-                </Link><Link href="/profile" onClick={()=>{setmobileview(true)}} className="text-lg hover:underline">
-                Profile
-              </Link></div>
-                
-              ) : (
-                <div className="flex flex-col items-center gap-4 h-fit">
-                  <Link href="/auth/sign-in" onClick={()=>{setmobileview(true)}} className="text-lg font-semibold hover:text-blue-400 transition-colors duration-300">
-                    LogIn
-                  </Link>
-                  <Link href="/auth/sign-up" onClick={()=>{setmobileview(true)}} className="text-lg font-semibold hover:text-blue-400 transition-colors duration-300">
-                    SignUp
-                  </Link>
-                </div>
-              )}
-              
-            </li>
-          </ul>
+    {/* User Account */}
+    <li className="flex flex-col gap-4 items-center">
+      {session?.data?.user ? (
+        <div className="flex flex-col items-center">
+          <Link
+            href="/"
+            onClick={() => {
+              signOut();
+              setmobileview(true);
+            }}
+            className="text-lg rounded-lg cursor-pointer hover:text-blue-400 text-white"
+          >
+            LogOut
+          </Link>
+          <Link
+            href="/profile"
+            onClick={() => {
+              setmobileview(true);
+            }}
+            className="text-lg hover:underline"
+          >
+            Profile
+          </Link>
         </div>
+      ) : (
+        <div className="flex flex-col items-center gap-4 h-fit">
+          <Link
+            href="/auth/sign-in"
+            onClick={() => {
+              setmobileview(true);
+            }}
+            className="text-lg font-semibold hover:text-blue-400 transition-colors duration-300"
+          >
+            LogIn
+          </Link>
+          <Link
+            href="/auth/sign-up"
+            onClick={() => {
+              setmobileview(true);
+            }}
+            className="text-lg font-semibold hover:text-blue-400 transition-colors duration-300"
+          >
+            SignUp
+          </Link>
+        </div>
+      )}
+    </li>
+  </ul>
+</div>
+
       )}
     </div>
   );

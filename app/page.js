@@ -11,7 +11,6 @@ const Page = () => {
   const { data: session, status } = useSession();
   const { setuserdata } = useContext(DataContext);
   console.log(session)
-  // Fetch user data only when the session is ready
   const fetchdata = async (email) => {
     try {
       const res = await fetch(`/api/userdata?email=${encodeURIComponent(email)}`, {

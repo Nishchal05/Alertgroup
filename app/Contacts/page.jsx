@@ -2,47 +2,52 @@
 import { Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import React, { useState,useContext } from "react";
 import { DataContext } from "../_component/context/Topbar";
-import { useSession } from "next-auth/react";
+import { toast } from "sonner";
 const Contacts = () => {
   const { userdata } = useContext(DataContext);
 const UserId = userdata?.data?._id;
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(data); 
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const res = await fetch('/api/ContactsDetails', {
-        method: 'POST',
-        body: JSON.stringify(data,UserId),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      const result = await res.json();
-      if (res.ok) {
-        alert('Form submitted successfully!');
-        setData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          company: '',
-          canadaProvinces: '',
-          state: '',
-          city: '',
-          assistance: '',
-          duration: '',
-          additionalInfo: '',
-        });
-      } else {
-        alert('Error submitting form: ' + result.message);
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      alert('Error submitting the form. Please try again later.');
-    }
+  const mergedData = {
+    ...data,
+    UserId,  
   };
+
+  try {
+    const res = await fetch('/api/ContactsDetails', {
+      method: 'POST',
+      body: JSON.stringify(mergedData),  // Send the merged data with UserId
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const result = await res.json();
+    if (res.ok) {
+      toast('Soon Our Team Contact You!');
+      setData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        company: '',
+        canadaProvinces: '',
+        state: '',
+        city: '',
+        assistance: '',
+        duration: '',
+        additionalInfo: '',
+      });
+    } else {
+      toast('Error submitting form: ' + result.message);
+    }
+  } catch (error) {
+    console.error('Form submission error:', error);
+    toast('Error submitting the form. Please try again later.');
+  }
+};
+
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -85,8 +90,6 @@ const UserId = userdata?.data?._id;
             Let’s safeguard your future together. Contact us for cutting-edge security systems and personalized support.
           </p>
           <img src="/contact.webp" alt="ContactPic" className="rounded-lg shadow-lg" />
-
-          {/* Contact Information */}
           <div className="space-y-4 text-white">
             <div className="flex items-center gap-4">
               <PhoneIcon />

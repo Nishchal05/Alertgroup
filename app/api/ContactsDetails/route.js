@@ -7,7 +7,7 @@ async function POST(req) {
     DBConnect()
   try {
     const res = await req.json();
-    const { firstName, lastName, email, phone, company, additionalInfo, duration, assistance, city, state, canadaProvinces,UserId} = res;
+    const { firstName, lastName, email, phone, company, additionalInfo, duration, assistance, city, state, canadaProvinces, UserId} = res;
     console.log(firstName, lastName, email, phone, company, additionalInfo, duration, assistance, city, state, canadaProvinces,UserId)
     if (!firstName || !lastName || !email || !phone || !company || !additionalInfo || !duration || !assistance || !city || !state || !canadaProvinces) {
         return NextResponse.json({
