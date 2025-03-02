@@ -53,8 +53,8 @@ async function sendEmail(userData) {
       });
       
   const mailOptions = {
-    from: 'nishchalsundan04@gmail.com', // use a hardcoded email address temporarily
-    to: 'nishchalsundan04@gmail.com',   // your email address
+    from: 'process.env.EMAIL_USER', // use a hardcoded email address temporarily
+    to: 'process.env.EMAIL_USER',   // your email address
     subject: 'New Contact Form Submission',
     text: `You have a new form submission:
       Name: ${userData.firstName} ${userData.lastName}

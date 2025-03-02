@@ -51,7 +51,7 @@ async function POST(req) {
           
       const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: process.env.Email_User,   
+        to: process.env.EMAIL_USER,   
         subject: 'Job Application',
         text: `Job Application:
           Name: ${data.firstName} ${data.lastName}
