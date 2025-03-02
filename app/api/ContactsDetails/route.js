@@ -42,19 +42,18 @@ async function POST(req) {
     console.error("Error saving data or sending email: ", error);
     return NextResponse.json({ message: 'Error occurred', error });
   }
-}
-async function sendEmail(userData) {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: process.env.EMAIL_USER, // Reads from your .env
-          pass: process.env.EMAIL_PASS  // Use the App Password here
-        },
-      });
-      
+}async function sendEmail(userData) {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER, // Reads from your .env file
+      pass: process.env.EMAIL_PASS  // Use the App Password here
+    },
+  });
+
   const mailOptions = {
-    from: 'process.env.EMAIL_USER', // use a hardcoded email address temporarily
-    to: 'process.env.EMAIL_USER',   // your email address
+    from: process.env.EMAIL_USER, // Reference your env variable correctly
+    to: process.env.EMAIL_USER,   // Use your recipient's email address
     subject: 'New Contact Form Submission',
     text: `You have a new form submission:
       Name: ${userData.firstName} ${userData.lastName}
@@ -68,14 +67,13 @@ async function sendEmail(userData) {
       Duration: ${userData.duration}
       Additional Info: ${userData.additionalInfo}`
   };
-  
-  await transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log('Error while sending email: ', error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent: ' + info.response);
+  } catch (error) {
+    console.log('Error while sending email: ', error);
+  }
 }
 
 module.exports = { POST };
