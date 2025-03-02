@@ -10,7 +10,6 @@ import { DataContext } from "./_component/context/Topbar";
 const Page = () => {
   const { data: session, status } = useSession();
   const { setuserdata } = useContext(DataContext);
-  console.log(session)
   const fetchdata = async (email) => {
     try {
       const res = await fetch(`/api/userdata?email=${encodeURIComponent(email)}`, {
@@ -20,10 +19,9 @@ const Page = () => {
         },
       });
       const result = await res.json();
-      console.log(result)
       if (res.ok) {
         setuserdata(result);
-        console.log(result);
+;
       }
     } catch (error) {
       console.log(error);

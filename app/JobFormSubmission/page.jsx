@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/navigation"; // Updated to next/navigation for app directory support
 import JobTerms from "@/app/JoinPortal/JobTerms";
 import JobForm1 from "@/app/JoinPortal/JobForm1";
-import JobForm2 from "@/app/JoinPortal/JobForm2";
+import JobForm2 from "@/app/JoinPortal/Jobform2";
 import { DataContext } from "../_component/context/Topbar";
 import { toast } from "sonner";
 
