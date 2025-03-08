@@ -122,11 +122,9 @@ const Header = () => {
                 <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
                   <div className="flex flex-col gap-2 w-fit">
                     {session?.data?.user ? (
-                      <div><Link href="/" onClick={() => signOut()} className="text-sm rounded-lg cursor-pointer hover:text-blue-500 text-white">
+                      <Link href="/" onClick={() => signOut()} className="text-sm rounded-lg cursor-pointer hover:text-blue-500 text-white">
                         LogOut
-                      </Link><Link href="/logout" className="text-black hover:underline">
-                      Profile
-                    </Link></div>
+                      </Link>
                       
                     ) : (
                       <div className="flex flex-col items-center gap-4 h-fit">
@@ -238,7 +236,7 @@ const Header = () => {
     {/* User Account */}
     <li className="flex flex-col gap-4 items-center">
       {session?.data?.user ? (
-        <div className="flex flex-col items-center">
+       
           <Link
             href="/"
             onClick={() => {
@@ -249,16 +247,8 @@ const Header = () => {
           >
             LogOut
           </Link>
-          <Link
-            href="/profile"
-            onClick={() => {
-              setmobileview(true);
-            }}
-            className="text-lg hover:underline"
-          >
-            Profile
-          </Link>
-        </div>
+          
+        
       ) : (
         <div className="flex flex-col items-center gap-4 h-fit">
           <Link
