@@ -1,71 +1,81 @@
-"use client"
+"use client";
 import { Instagram, LinkedIn, Twitter } from "@mui/icons-material";
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { DataContext } from "../_component/context/Topbar";
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { AllServicesList } from "../_component/_data/AllServicesList";
+import { Loader } from "lucide-react";
 const Contacts = () => {
   const { userdata } = useContext(DataContext);
-const UserId = userdata?.data?._id;
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const [loading,setloading]=useState(false)
+  const UserId = userdata?.data?._id;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setloading(true);
+    const mergedData = {
+      ...data,
+      UserId,
+    };
 
-  const mergedData = {
-    ...data,
-    UserId,  
+    try {
+      const res = await fetch("/api/ContactsDetails", {
+        method: "POST",
+        body: JSON.stringify(mergedData), 
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await res.json();
+      if (res.ok) {
+        toast("Soon Our Team Contact You!");
+        setloading(false);
+        setData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          ss: "",
+          state: "",
+          city: "",
+          assistance: "",
+          duration: "",
+          additionalInfo: "",
+        });
+      } else {
+        toast("Error submitting form: " + result.message);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast("Error submitting the form. Please try again later.");
+    }
   };
 
-  try {
-    const res = await fetch('/api/ContactsDetails', {
-      method: 'POST',
-      body: JSON.stringify(mergedData),  // Send the merged data with UserId
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    const result = await res.json();
-    if (res.ok) {
-      toast('Soon Our Team Contact You!');
-      setData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        company: '',
-        canadaProvinces: '',
-        state: '',
-        city: '',
-        assistance: '',
-        duration: '',
-        additionalInfo: '',
-      });
-    } else {
-      toast('Error submitting form: ' + result.message);
-    }
-  } catch (error) {
-    console.error('Form submission error:', error);
-    toast('Error submitting the form. Please try again later.');
-  }
-};
-
   const [data, setData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    company: '',
-    canadaProvinces: '',
-    state: '',
-    city: '',
-    assistance: '',
-    duration: '',
-    additionalInfo: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    canadaProvinces: "",
+    state: "",
+    city: "",
+    assistance: "",
+    duration: "",
+    additionalInfo: "",
   });
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-
 
   return (
     <div className="flex flex-col items-center justify-center p-6 gap-12 mt-24 min-h-screen">
@@ -87,9 +97,14 @@ const handleSubmit = async (e) => {
             Let's <span className="text-blue-500">Talk:</span>
           </h1>
           <p className="text-lg md:text-2xl text-white">
-            Let’s safeguard your future together. Contact us for cutting-edge security systems and personalized support.
+            Let’s safeguard your future together. Contact us for cutting-edge
+            security systems and personalized support.
           </p>
-          <img src="/contact.webp" alt="ContactPic" className="rounded-lg shadow-lg" />
+          <img
+            src="/contact.webp"
+            alt="ContactPic"
+            className="rounded-lg shadow-lg"
+          />
           <div className="space-y-4 text-white">
             <div className="flex items-center gap-4">
               <PhoneIcon />
@@ -116,44 +131,163 @@ const handleSubmit = async (e) => {
 
           {/* Social Media Links */}
           <div className="flex gap-4 text-3xl mt-4 text-white">
-            <a href="https://www.linkedin.com/in/alertgroupsecurity" aria-label="LinkedIn" className="hover:text-blue-500">
+            <a
+              href="https://www.linkedin.com/in/alertgroupsecurity"
+              aria-label="LinkedIn"
+              className="hover:text-blue-500"
+            >
               <LinkedIn />
             </a>
             <a href="#" aria-label="Twitter" className="hover:text-blue-400">
               <Twitter />
             </a>
-            <a href="https://www.instagram.com/alertgroup_security" aria-label="Instagram" className="hover:text-pink-500">
+            <a
+              href="https://www.instagram.com/alertgroup_security"
+              aria-label="Instagram"
+              className="hover:text-pink-500"
+            >
               <Instagram />
             </a>
           </div>
         </div>
-
-        {/* Right Section - Contact Form */}
-        <form className="space-y-6 p-8 bg-black rounded-lg shadow-2xl w-full max-w-lg md:w-1/2 border border-gray-300" onSubmit={handleSubmit}>
+        <form
+          className="space-y-6 p-8 bg-black rounded-lg shadow-2xl w-full max-w-lg md:w-1/2 border border-gray-300 h-fit"
+          onSubmit={handleSubmit}
+        >
           <h1 className="text-2xl font-semibold">Talk To Us:</h1>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <InputField label="First Name" id="firstName" required onChange={handleChange} />
-            <InputField label="Last Name" id="lastName" required onChange={handleChange} />
+            <div>
+              <label>First Name</label>
+              <input
+                required
+                name="firstName" // Added name attribute
+                onChange={handleChange}
+                className="text-white bg-gray-900 p-2 rounded-lg"
+              />
+            </div>
+            <div>
+              <label>Last Name</label>
+              <input
+                required
+                name="lastName" // Added name attribute
+                onChange={handleChange}
+                className="text-white bg-gray-900 p-2 rounded-lg"
+              />
+            </div>
           </div>
-
-          <InputField label="Business Email Address" id="email" type="email" required onChange={handleChange} />
-          <InputField label="Phone Number" id="phone" type="tel" required onChange={handleChange} />
-          <InputField label="Company Name" id="company" onChange={handleChange} />
+          <div className="flex flex-col">
+            <label>Business Email Address</label>
+            <input
+              required
+              name="email" // Added name attribute
+              type="email"
+              onChange={handleChange}
+              className="text-white bg-gray-900 p-2 rounded-lg"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label>Phone Number</label>
+            <input
+              required
+              name="phone" // Added name attribute
+              type="tel"
+              onChange={handleChange}
+              className="text-white bg-gray-900 p-2 rounded-lg"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label>Company Name</label>
+            <input
+              required
+              name="company" // Added name attribute
+              type="text"
+              onChange={handleChange}
+              className="text-white bg-gray-900 p-2 rounded-lg"
+            />
+          </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <InputField label="Canada Provinces" id="canadaProvinces" onChange={handleChange} />
-            <InputField label="State" id="state" required onChange={handleChange} />
-            <InputField label="City" id="city" required onChange={handleChange} />
+            <div className="flex flex-col">
+              <label>Canada Provinces</label>
+              <input
+                required
+                name="canadaProvinces" // Added name attribute
+                type="text"
+                onChange={handleChange}
+                className="text-white bg-gray-900 p-2 rounded-lg"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label>State</label>
+              <input
+                required
+                name="state" // Added name attribute
+                type="text"
+                onChange={handleChange}
+                className="text-white bg-gray-900 p-2 rounded-lg"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label>City</label>
+              <input
+                required
+                name="city" // Added name attribute
+                type="text"
+                onChange={handleChange}
+                className="text-white bg-gray-900 p-2 rounded-lg"
+              />
+            </div>
           </div>
 
-          <TextAreaField label="How can we assist you today?" id="assistance" required onChange={handleChange} />
-          <InputField label="Duration of Services" id="duration" onChange={handleChange} />
-          <TextAreaField label="Additional Information" id="additionalInfo" onChange={handleChange} />
+          <Select
+            onValueChange={(value) => setData({ ...data, assistance: value })}
+          >
+            <SelectTrigger className="w-full bg-slate-900 text-white">
+              <SelectValue placeholder="How can we assist you today?" />
+            </SelectTrigger>
+            <SelectContent>
+              {AllServicesList.map((val, index) => (
+                <SelectItem
+                  key={index}
+                  value={val.name}
+                  className="p-2 mt-2 bg-gray-300 text-black border border-gray-300 rounded-lg shadow-sm hover:bg-gray-300 transition-colors cursor-pointer"
+                >
+                  {val.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          <Select
+            onValueChange={(value) => setData({ ...data, duration: value })}
+          >
+            <SelectTrigger className="w-full bg-slate-900">
+              <SelectValue placeholder="Duration of Service" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="1-15 Days" className="p-2 mt-2 bg-gray-300 text-black border border-gray-300 rounded-lg shadow-sm hover:bg-gray-300 transition-colors cursor-pointer">1-15 Days</SelectItem>
+              <SelectItem value="16-30 Days" className="p-2 mt-2 bg-gray-300 text-black border border-gray-300 rounded-lg shadow-sm hover:bg-gray-300 transition-colors cursor-pointer">16-30 Days</SelectItem>
+              <SelectItem value="31-60 Days" className="p-2 mt-2 bg-gray-300 text-black border border-gray-300 rounded-lg shadow-sm hover:bg-gray-300 transition-colors cursor-pointer">31-60 Days</SelectItem>
+              <SelectItem value="61-120 Days" className="p-2 mt-2 bg-gray-300 text-black border border-gray-300 rounded-lg shadow-sm hover:bg-gray-300 transition-colors cursor-pointer">61-120 Days</SelectItem>
+              <SelectItem value="121-200 Days" className="p-2 mt-2 bg-gray-300 text-black border border-gray-300 rounded-lg shadow-sm hover:bg-gray-300 transition-colors cursor-pointer">121-200 Days</SelectItem>
+              <SelectItem value="200+ Days" className="p-2 mt-2 bg-gray-300 text-black border border-gray-300 rounded-lg shadow-sm hover:bg-gray-300 transition-colors cursor-pointer">200+ Days</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <div className="flex flex-col">
+            <label>Additional Information</label>
+            <textarea
+              name="additionalInfo" // Added name attribute
+              onChange={handleChange}
+              className="text-white bg-gray-900 p-2 rounded-lg"
+            />
+          </div>
 
           <button
             type="submit"
-            className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-md shadow-lg hover:scale-105 transform transition-all duration-300"
+            className="flex justify-center w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold rounded-md shadow-lg hover:scale-105 transform transition-all duration-300"
           >
+          {loading&&<Loader className=" animate-spin"/>}
             Submit
           </button>
         </form>

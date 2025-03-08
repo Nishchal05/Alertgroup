@@ -8,9 +8,10 @@ const DataProvider = ({ children }) => {
   const [Position,setPosition]=useState(null);
   const [Responsibilities,setResponsibilities]=useState(null);
   const [userdata,setuserdata]=useState(null);
+  const [ServiceName,setservicename]=useState(null)
   return (
     // Providing the value (state and setter) to the children components
-    <DataContext.Provider value={{ laptopview, setmobileview,userdata,setuserdata,Position,setPosition,Responsibilities,setResponsibilities}}>
+    <DataContext.Provider value={{ laptopview, setmobileview,userdata,setuserdata,Position,setPosition,Responsibilities,setResponsibilities,ServiceName,setservicename}}>
       {children}
     </DataContext.Provider>
   );

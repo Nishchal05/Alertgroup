@@ -11,7 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { EliteSecurityServices, EventSecurityServices, SecurityList } from "./_data/SecurityList";
 import { ScrollArea } from "@/components/ui/scroll-area"
 const Header = () => {
-  const { laptopview, setmobileview } = useContext(DataContext);
+  const { laptopview, setmobileview,setservicename } = useContext(DataContext);
   const session = useSession();
 
   return (
@@ -52,9 +52,9 @@ const Header = () => {
                 <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
                   <div className="flex flex-col gap-2">
                     {SecurityList.map((val, index) => (
-                      <ul className=" w-64 text-white flex flex-col gap-2" key={index}>
+                      <ul className=" w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.name)}>
                         <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
-                          {val.name}
+                        <Link href={val.Link}>{val.name}</Link>
                         </li>
                       </ul>
                     ))}
@@ -73,9 +73,10 @@ const Header = () => {
                 <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
                   <div className="flex flex-col gap-2">
                     {EventSecurityServices.map((val, index) => (
-                      <ul className="w-64 text-white flex flex-col gap-2" key={index}>
+                      <ul className="w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.name)}>
                         <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
-                          {val.name}
+                        <Link href={val.Link}>{val.name}</Link>
+                          
                         </li>
                       </ul>
                     ))}
@@ -94,9 +95,9 @@ const Header = () => {
                 <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
                   <div className="flex flex-col gap-2">
                     {EliteSecurityServices.map((val, index) => (
-                      <ul className="w-64 text-white flex flex-col gap-2" key={index}>
+                      <ul className="w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.name)}>
                         <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
-                          {val.name}
+                        <Link href={val.Link}>{val.name}</Link>
                         </li>
                       </ul>
                     ))}

@@ -4,17 +4,12 @@ const nodemailer = require("nodemailer");
 
 async function POST(req) {
     try {
-        // Parse incoming request data
         const { firstName, lastName, email, phone, position, message, resumeFile } = await req.json();
-        
-        // Check if all required fields are provided
         if (!firstName || !lastName || !email || !phone || !position || !message || !resumeFile) {
             return NextResponse.json({
                 message: 'Provide All Details'
-            }, { status: 400 }); // Send 400 for bad request
+            }, { status: 400 });
         }
-        
-        // Create new job application instance
         const newApplication = new JobApplication({
             firstName,
             lastName,
