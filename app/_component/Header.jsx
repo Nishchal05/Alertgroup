@@ -163,8 +163,9 @@ const Header = () => {
                   <li
                     key={service.name}
                     className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                    onClick={()=>setservicename(service.name)}
                   >
-                    {service.name}
+                    <Link href={service.Link}>{service.name}</Link>
                   </li>
                 ))}
               </ScrollArea>
@@ -186,9 +187,10 @@ const Header = () => {
               {AllServicesList.filter(val=>val.Type=='Event Security Services').map((service) => (
                 <li
                   key={service.name}
+                  onClick={()=>setservicename(service.name)}
                   className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
                 >
-                  {service.name}
+                  <Link href={service.Link}>{service.name}</Link>
                 </li>
               ))}
             </ul>
@@ -209,9 +211,10 @@ const Header = () => {
               {AllServicesList.filter(val=>val.Type=='Elite Security Services').map((service) => (
                 <li
                   key={service.name}
+                  onClick={()=>setservicename(service.name)}
                   className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
                 >
-                  {service.name}
+                  <Link href={service.Link}>{service.name}</Link>
                 </li>
               ))}
             </ul>
