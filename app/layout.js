@@ -1,12 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./_component/Header";
-import DataProvider from "./Provider"; 
-import { Toaster } from "@/components/ui/sonner"
+import DataProvider from "./Provider";
+import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "next-auth/react";
 import Footer from "./_component/Footer";
 
- // Correct path to your DataProvider
+// Correct path to your DataProvider
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +30,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <DataProvider>
-        <SessionProvider><Header />
-          {children}
-          <Footer/></SessionProvider>
-          
+          <SessionProvider>
+            <Header />
+            {children}
+            <Footer />
+          </SessionProvider>
         </DataProvider>
         <Toaster />
       </body>

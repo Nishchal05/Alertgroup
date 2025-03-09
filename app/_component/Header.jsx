@@ -8,8 +8,8 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { DataContext } from "./context/Topbar";
 import { Close } from "@mui/icons-material";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { EliteSecurityServices, EventSecurityServices, SecurityList } from "./_data/SecurityList";
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { AllServicesList } from "./_data/AllServicesList";
 const Header = () => {
   const { laptopview, setmobileview,setservicename } = useContext(DataContext);
   const session = useSession();
@@ -51,7 +51,7 @@ const Header = () => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
                   <div className="flex flex-col gap-2">
-                    {SecurityList.map((val, index) => (
+                    {AllServicesList.filter(val=>val.Type=='Security Services').map((val, index) => (
                       <ul className=" w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.name)}>
                         <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
                         <Link href={val.Link}>{val.name}</Link>
@@ -72,7 +72,7 @@ const Header = () => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
                   <div className="flex flex-col gap-2">
-                    {EventSecurityServices.map((val, index) => (
+                    {AllServicesList.filter(val=>val.Type=='Event Security Services').map((val, index) => (
                       <ul className="w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.name)}>
                         <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
                         <Link href={val.Link}>{val.name}</Link>
@@ -94,7 +94,7 @@ const Header = () => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
                   <div className="flex flex-col gap-2">
-                    {EliteSecurityServices.map((val, index) => (
+                    {AllServicesList.filter(val=>val.Type=='Elite Security Services').map((val, index) => (
                       <ul className="w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.name)}>
                         <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
                         <Link href={val.Link}>{val.name}</Link>
@@ -159,7 +159,7 @@ const Header = () => {
           <AccordionContent>
             <ul className="w-full text-white flex flex-col gap-4 mt-4">
               <ScrollArea className="h-[220px] w-full rounded-md border border-gray-600 p-4 bg-gray-900">
-                {SecurityList.map((service) => (
+                {AllServicesList.filter(val=>val.Type=='Security Services').map((service) => (
                   <li
                     key={service.name}
                     className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
@@ -183,7 +183,7 @@ const Header = () => {
           </AccordionTrigger>
           <AccordionContent>
             <ul className="w-full text-white flex flex-col gap-4 mt-4">
-              {EventSecurityServices.map((service) => (
+              {AllServicesList.filter(val=>val.Type=='Event Security Services').map((service) => (
                 <li
                   key={service.name}
                   className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
@@ -206,7 +206,7 @@ const Header = () => {
           </AccordionTrigger>
           <AccordionContent>
             <ul className="w-full text-white flex flex-col gap-4 mt-4">
-              {EliteSecurityServices.map((service) => (
+              {AllServicesList.filter(val=>val.Type=='Elite Security Services').map((service) => (
                 <li
                   key={service.name}
                   className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"

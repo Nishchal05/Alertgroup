@@ -2,7 +2,6 @@
 import React, { useContext } from 'react'
 import { DataContext } from '../_component/context/Topbar'
 import Servicespage from './Servicepage';
-import SecurityServices from '../_component/_data/SecurityServices';
 import { AllServicesList } from '../_component/_data/AllServicesList';
 
 const Page = () => {
@@ -11,11 +10,11 @@ const Page = () => {
     return (
         <div className=' mt-[150px]'>
             {AllServicesList
-                .filter(val => val.name === ServiceName)
+                .filter(val => val.name == ServiceName)
                 .map((item, index) => (
                     <Servicespage 
                         key={index}
-                        label={item.ServiceName} 
+                        label={item.name} 
                         discription={item.discription} 
                         subheading={item.subheading}
                         img={item.img} 

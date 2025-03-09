@@ -1,3 +1,4 @@
+"use client"
 import {
   Email,
   Facebook,
@@ -8,10 +9,12 @@ import {
 import PublicIcon from "@mui/icons-material/Public";
 import { PhoneCall } from "lucide-react";
 import Link from "next/link";
-import React from "react";
-import { SecurityList } from "./_data/SecurityList";
+import React, { useContext } from "react";
+import { AllServicesList } from "./_data/AllServicesList";
+import { DataContext } from "./context/Topbar";
 
 const Footer = () => {
+  const { setservicename }=useContext(DataContext);
   return (
     <footer className="flex flex-col w-full mt-24 border-t-[1px] text-gray-300 py-8">
       {/* Top Section: Logo, Location, and Social Links */}
@@ -90,8 +93,10 @@ const Footer = () => {
         {/* Who We Serve */}
         <div className="flex flex-col space-y-2">
           <h2 className="text-xl font-semibold text-white">Who We Serve</h2>
-          {SecurityList.map((val, index) => (
-            <Link key={index} href="#" className="hover:text-blue-500">
+          {AllServicesList.filter(val=>val.Type=='Security Services').map((val, index) => (
+            <Link key={index} href="/Services" className="hover:text-blue-500" onClick={()=>{
+              setservicename(val.name)
+            }}>
               {val.name}
             </Link>
           ))}
