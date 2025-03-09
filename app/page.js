@@ -6,8 +6,18 @@ import AboutUs from "./_component/AboutUs";
 import { Crimedata } from "./_component/Crimedata";
 import { useSession } from "next-auth/react";
 import { DataContext } from "./_component/context/Topbar";
-
+import AOS from "aos"; 
 const Page = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,  // Set animation duration to 1000ms (1 second)
+      once: true,      // Whether animation should happen only once
+    });
+
+    return () => {
+      AOS.refresh();  // Clean up AOS on component unmount
+    };
+  }, []);
   const { data: session, status } = useSession();
   const { setuserdata } = useContext(DataContext);
   const fetchdata = async (email) => {
@@ -44,13 +54,13 @@ const Page = () => {
           alt="hero background"
           className="h-[91.5vh] w-screen object-cover opacity-10"
         />
-        <div className="absolute top-[15%] gap-4">
+        <div data-aos="fade-up" className="absolute top-[15%] gap-4">
           <Home />
         </div>
       </div>
 
       {/* Main Content Sections */}
-      <div className="flex flex-col px-4 md:px-8 lg:px-16 py-12">
+      <div data-aos="fade-up" className="flex flex-col px-4 md:px-8 lg:px-16 py-12">
         <Services />
         <AboutUs />
         <Crimedata />

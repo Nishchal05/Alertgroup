@@ -8,8 +8,6 @@ const CardSlider = () => {
   const { setservicename } = useContext(DataContext); // This will now work properly
 const displayServices = AllServicesList.filter(val => val.Type === 'display');
   useEffect(() => {
-     // Filter the list based on 'display'
-    
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % displayServices.length); // Use the length of the filtered array
     }, 3000);
