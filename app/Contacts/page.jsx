@@ -10,10 +10,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { AllServicesList } from "../_component/_data/AllServicesList";
 import { Loader } from "lucide-react";
 const Contacts = () => {
-  const { userdata } = useContext(DataContext);
+  const { userdata,Securityservices } = useContext(DataContext);
   const [loading,setloading]=useState(false)
   const UserId = userdata?.data?._id;
   const handleSubmit = async (e) => {
@@ -246,7 +245,7 @@ const Contacts = () => {
               <SelectValue placeholder="How can we assist you today?" />
             </SelectTrigger>
             <SelectContent>
-              {AllServicesList.map((val, index) => (
+              {Securityservices.map((val, index) => (
                 <SelectItem
                   key={index}
                   value={val.name}
