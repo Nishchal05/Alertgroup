@@ -186,7 +186,7 @@ const Header = () => {
               {Securityservices.filter(val=>val.type=='Event Security Services').map((service) => (
                 <li
                   key={service.serviceName}
-                  onClick={()=>{setservicename(service.name)
+                  onClick={()=>{setservicename(service.serviceName)
                   setmobileview(true);}}
                   className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
                 >
