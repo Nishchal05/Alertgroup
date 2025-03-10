@@ -1,8 +1,12 @@
+import Job from "@/app/models/Jonschema";
+import DBConnect from "@/lib/Database";
+
 const JobApplication = require("@/app/models/JobApplication");
 const { NextResponse } = require("next/server");
 const nodemailer = require("nodemailer");
 
-async function POST(req) {
+export async function POST(req) {
+    await DBConnect
     try {
         const { firstName, lastName, email, phone, position, message, resumeFile } = await req.json();
         if (!firstName || !lastName || !email || !phone || !position || !message || !resumeFile) {
@@ -73,4 +77,14 @@ async function sendEmail(data) {
     }
 }
 
-module.exports = { POST };
+
+export async function GET(req,res) {
+    await DBConnect();
+    try {
+        const services = await Job.find();
+        return NextResponse.json({ services }, { status: 200 });
+      } catch (error) {
+        return NextResponse.json({ message: "Failed to fetch security services", error });
+      }
+    
+}

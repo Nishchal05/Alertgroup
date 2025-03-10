@@ -1,15 +1,14 @@
 "use client";
 import React, { useContext, useState } from "react";
-import JobList from "../_component/_data/JobList";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { DataContext } from "../_component/context/Topbar";
 
 const Joblisting = () => {
   const [list, setList] = useState(0);
-
+const {setPosition,setResponsibilities,AlertGroupJob}=useContext(DataContext)
   const handleNext = () => {
-    if (list + 4 < JobList.length) {
+    if (list + 4 < AlertGroupJob.length) {
       setList(list + 4);
     }
   };
@@ -19,7 +18,7 @@ const Joblisting = () => {
       setList(list - 4);
     }
   };
-  const {setPosition,setResponsibilities}=useContext(DataContext)
+  
 
   return (
     <div
@@ -44,7 +43,7 @@ const Joblisting = () => {
 
         {/* Job cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-6xl">
-          {JobList.slice(list, list + 4).map((val, index) => (
+          {AlertGroupJob.slice(list, list + 4).map((val, index) => (
             <div
               key={index}
               className="border rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-slate-950 flex flex-col gap-4"
@@ -56,16 +55,21 @@ const Joblisting = () => {
                 className="mx-auto"
               />
               <div className="text-lg font-bold text-white mb-2">
-                Position: {val.Position}
+                Company: {val.company}
               </div>
-              <div className="text-md text-gray-400">Type: {val.Type}</div>
+              <div className="text-lg font-bold text-white mb-2">
+                Position: {val.jobTitle}
+              </div>
+              <div className="text-md text-gray-400">Type: {val.jobType}</div>
+              <div className="text-md text-gray-400">Experience Required: {val.experienceLevel}</div>
               <Link
+              className=" flex justify-center bg-black"
                 href={{
                   pathname: '/JobFormSubmission',
                 }}
                 onClick={()=>{
-                  setPosition(val.Position)
-                  setResponsibilities(val.Responsibilities)
+                  setPosition(val.jobTitle)
+                  setResponsibilities(val.responsibilities)
                 }}
               >
                 Apply
@@ -77,7 +81,7 @@ const Joblisting = () => {
         {/* Right Arrow */}
         <ArrowRight
           className={`cursor-pointer text-white text-3xl ${
-            list + 4 >= JobList.length
+            list + 4 >= AlertGroupJob.length
               ? "opacity-50 pointer-events-none"
               : "hover:scale-105 transition-transform"
           }`}
