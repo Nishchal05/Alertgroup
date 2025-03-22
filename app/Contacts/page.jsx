@@ -248,10 +248,10 @@ const Contacts = () => {
               {Securityservices.map((val, index) => (
                 <SelectItem
                   key={index}
-                  value={val.name}
+                  value={val.serviceName}
                   className="p-2 mt-2 bg-gray-300 text-black border border-gray-300 rounded-lg shadow-sm hover:bg-gray-300 transition-colors cursor-pointer"
                 >
-                  {val.name}
+                  {val.serviceName}
                 </SelectItem>
               ))}
             </SelectContent>

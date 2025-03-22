@@ -18,7 +18,9 @@ const Header = () => {
         <Link href="/" className="flex items-center">
           <img src="/AlertGroup.png" alt="Alertgroup" width={60} />
           <h1 className="text-white text-4xl font-serif">
-            Alert<span className="text-blue-500">Group</span>
+            Alert<span style={{
+              color:'	#00078c',
+            }}>Group</span>
           </h1>
         </Link>
 
@@ -47,11 +49,11 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent p-2 rounded-full text-white text-md">
                   Security Services
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
+                <NavigationMenuContent className="p-4 bg-black shadow-lg border-none">
                   <div className="flex flex-col gap-2">
                     {Securityservices.filter(val=>val.type=='Security Services').map((val, index) => (
                       <ul className=" w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.serviceName)}>
-                        <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
+                        <li className="rounded-lg p-3 cursor-pointer hover:bg-slate-700">
                         <Link href='/Services'>{val.serviceName}</Link>
                         </li>
                       </ul>
@@ -68,11 +70,11 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent p-2 rounded-full text-white text-md">
                   Event Security Services
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
+                <NavigationMenuContent className="p-4 bg-black shadow-lg border-none">
                   <div className="flex flex-col gap-2">
                     {Securityservices.filter(val=>val.type=='Event Security Services').map((val, index) => (
                       <ul className="w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.serviceName)}>
-                        <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
+                        <li className="rounded-lg p-3 cursor-pointer hover:bg-slate-700">
                         <Link href='/Services'>{val.serviceName}</Link>
                           
                         </li>
@@ -90,11 +92,11 @@ const Header = () => {
                 <NavigationMenuTrigger className="bg-transparent p-2 rounded-full text-white text-md">
                   Elite Security Services
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="p-4 bg-black shadow-lg rounded-md">
+                <NavigationMenuContent className="p-4 bg-black shadow-lg border-none">
                   <div className="flex flex-col gap-2">
                     {Securityservices.filter(val=>val.type=='Elite Security Services').map((val, index) => (
                       <ul className="w-64 text-white flex flex-col gap-2" key={index} onClick={()=>setservicename(val.serviceName)}>
-                        <li className="border rounded-lg p-3 cursor-pointer hover:bg-slate-700">
+                        <li className=" rounded-lg p-3 cursor-pointer hover:bg-slate-700">
                         <Link href='/Services'>{val.serviceName}</Link>
                         </li>
                       </ul>
@@ -160,7 +162,7 @@ const Header = () => {
                 {Securityservices.filter(val=>val.type=='Security Services').map((service) => (
                   <li
                     key={service.name}
-                    className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                    className="rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
                     onClick={()=>{setservicename(service.serviceName)
                     setmobileview(true)}}
                   >
@@ -188,7 +190,7 @@ const Header = () => {
                   key={service.serviceName}
                   onClick={()=>{setservicename(service.serviceName)
                   setmobileview(true);}}
-                  className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                  className="rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
                 >
                   <Link href='/Services'>{service.serviceName}</Link>
                 </li>
@@ -213,7 +215,7 @@ const Header = () => {
                   key={service.name}
                   onClick={()=>{setservicename(service.serviceName)
                   setmobileview(true)}}
-                  className="border rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                  className="rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
                 >
                   <Link href='/Services'>{service.serviceName}</Link>
                 </li>

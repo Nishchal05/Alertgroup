@@ -23,7 +23,9 @@ const Footer = () => {
           <img src="/AlertGroup.png" alt="AlertGroup" width={80} />
           <div>
             <h1 className="text-4xl md:text-5xl font-serif">
-              Alert<span className="text-blue-500">Group</span>
+              Alert<span style={{
+              color:'	#00078c',
+            }}>Group</span>
             </h1>
             <div className="flex items-center mt-2 text-lg bg-gray-800 p-2 rounded-md">
               CAN <PublicIcon className="ml-2" />
@@ -52,11 +54,15 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="flex flex-col space-y-2 text-lg text-center md:text-left">
             <p className="flex items-center space-x-2">
-              <PhoneCall className="text-blue-500" />
+              <PhoneCall style={{
+              color:'	#00078c',
+            }} />
               <span>Phone: +1 (xxx) xxx-xxxx</span>
             </p>
             <p className="flex items-center space-x-2">
-              <Email className="text-blue-500" />
+              <Email style={{
+              color:'	#00078c',
+            }}/>
               <span>Email: admin@alertgroup.ca</span>
             </p>
           </div>
