@@ -16,7 +16,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-
+import Aos from "aos"
 const chartData = [
   { Year: "2017", CSI: 72.9 },
   { Year: "2018", CSI: 75.6 },
@@ -36,7 +36,7 @@ const chartConfig = {
 
 export function Crimedata() {
   return (
-    <div className="h-screen w-full flex flex-col items-center justify-center p-6  text-white mt-24">
+    <div data-aos="fade-up" className="h-screen w-full flex flex-col items-center justify-center p-6  text-white mt-24">
       <div className="text-center mb-6">
         <h1 className="text-4xl font-bold">Why Choose Us?</h1>
         <p className="text-lg text-gray-400 mt-2">We provide reliable services based on data-driven insights to help improve safety and security.</p>

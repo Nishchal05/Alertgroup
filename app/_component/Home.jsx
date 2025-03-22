@@ -14,6 +14,7 @@ const Home = () => {
         </p>
       </div>
       <img 
+      data-aos="fade-left"
         src='/map.png' 
         alt='Map' 
         width={500} 
