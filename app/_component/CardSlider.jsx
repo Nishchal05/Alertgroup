@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useContext, useMemo } from "react";
 import { DataContext } from "./context/Topbar";
 import Link from "next/link";
+import { MoveLeft, MoveRight } from "lucide-react";
 
 const CardSlider = () => {
   const [activeIndex, setActiveIndex] = useState(2);
@@ -66,7 +67,7 @@ const CardSlider = () => {
           backdropFilter: "blur(30px)",
         }}
       >
-        ←
+        <MoveLeft/>
       </button>
 
       {/* Card slider content */}
@@ -100,7 +101,7 @@ const CardSlider = () => {
           backdropFilter: "blur(30px)",
         }}
       >
-        →
+        <MoveRight/>
       </button>
     </div>
   );
