@@ -17,7 +17,7 @@ const Home = () => {
         src='/map.png' 
         alt='Map' 
         width={500} 
-        style={{ filter: 'drop-shadow(0 0 12px #00078c)' }}
+        style={{ filter: 'drop-shadow(0 0 12px #4169E1)' }}
        
       />
     </div>
