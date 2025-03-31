@@ -45,15 +45,7 @@ const Signup = () => {
         <h1 className="text-3xl font-extrabold text-center text-white mb-6">
           Join Us
         </h1>
-        <button
-          onClick={() => signIn("google")}
-          className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-md hover:scale-105 transition-transform shadow-lg mb-4"
-        >
-          Sign Up with Google
-        </button>
-
-        <p className="text-center text-gray-400 mb-4">Or use your credentials</p>
-
+       
         {error && (
           <p className="bg-red-500 text-white p-3 rounded-lg mb-5 text-center">
             {error}

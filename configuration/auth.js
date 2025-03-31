@@ -1,4 +1,3 @@
-import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import DBConnect from "@/lib/Database";
 import UserModel from "@/app/models/User";
@@ -6,10 +5,7 @@ import bcrypt from 'bcryptjs';
 import NextAuth from "next-auth"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [GoogleProvider({
-    clientId: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  }),
+  providers: [
   CredentialsProvider({
     name: "Credentials",
     credentials: {

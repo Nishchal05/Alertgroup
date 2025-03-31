@@ -39,14 +39,6 @@ export default function SignIn() {
         <h1 className="text-3xl font-extrabold text-center text-white mb-6">
           Welcome Back
         </h1>
-        <button
-          onClick={() => signIn("google")}
-          className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-md hover:scale-105 transition-transform shadow-lg mb-4"
-        >
-          Sign in with Google
-        </button>
-
-        <p className="text-center text-gray-400 mb-4">Or use your credentials</p>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <input
