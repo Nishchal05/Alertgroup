@@ -156,11 +156,11 @@ const Header = () => {
           </AccordionTrigger>
           <AccordionContent>
             <ul className="w-full text-white flex flex-col gap-4 mt-4">
-              <ScrollArea className="h-[220px] w-full rounded-md border border-gray-600 p-4 bg-gray-900">
+              <ScrollArea className="h-[220px] w-full rounded-md p-4">
                 {Securityservices.filter(val=>val.type=='Security Services').map((service) => (
                   <li
                     key={service.name}
-                    className="rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                    className="rounded-lg p-3 cursor-pointebg-gray-600 transition-all duration-300"
                     onClick={()=>{setservicename(service.serviceName)
                     setmobileview(true)}}
                   >
@@ -188,7 +188,7 @@ const Header = () => {
                   key={service.serviceName}
                   onClick={()=>{setservicename(service.serviceName)
                   setmobileview(true);}}
-                  className="rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                  className="rounded-lg p-3 cursor-pointer transition-all duration-300"
                 >
                   <Link href='/Services'>{service.serviceName}</Link>
                 </li>
@@ -213,7 +213,7 @@ const Header = () => {
                   key={service.name}
                   onClick={()=>{setservicename(service.serviceName)
                   setmobileview(true)}}
-                  className="rounded-lg p-3 cursor-pointer bg-gray-800 hover:bg-gray-600 transition-all duration-300 shadow-md"
+                  className="rounded-lg p-3 cursor-pointer transition-all duration-300"
                 >
                   <Link href='/Services'>{service.serviceName}</Link>
                 </li>
