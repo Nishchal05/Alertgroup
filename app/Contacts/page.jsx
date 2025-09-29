@@ -107,7 +107,7 @@ const Contacts = () => {
               <PhoneIcon />
               <div>
                 <h3 className="text-xl font-semibold text-white">Phone:</h3>
-                <p>+1-289380718</p>
+                <a href="tel:+1289380718" className="text-white hover:underline">+1-289-380-718</a>
               </div>
             </div>
             <div className="flex items-center gap-4">
