@@ -43,7 +43,6 @@ const Contacts = () => {
           phone: "",
           company: "",
           ss: "",
-          state: "",
           city: "",
           assistance: "",
           duration: "",
@@ -65,7 +64,6 @@ const Contacts = () => {
     phone: "",
     company: "",
     canadaProvinces: "",
-    state: "",
     city: "",
     assistance: "",
     duration: "",
@@ -109,7 +107,7 @@ const Contacts = () => {
               <PhoneIcon />
               <div>
                 <h3 className="text-xl font-semibold text-white">Phone:</h3>
-                <p>+1-xxxxxxxxxx</p>
+                <p>+1-289380718</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -123,7 +121,8 @@ const Contacts = () => {
               <LocationIcon />
               <div>
                 <h3 className="text-xl font-semibold text-white">Address:</h3>
-                <p>Canada</p>
+                <p>Address 2509, fall harvest cres, Pickering 
+                L1X 0G1</p>
               </div>
             </div>
           </div>
@@ -211,16 +210,6 @@ const Contacts = () => {
               <input
                 required
                 name="canadaProvinces" // Added name attribute
-                type="text"
-                onChange={handleChange}
-                className="text-white bg-gray-900 p-2 rounded-lg"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label>State</label>
-              <input
-                required
-                name="state" // Added name attribute
                 type="text"
                 onChange={handleChange}
                 className="text-white bg-gray-900 p-2 rounded-lg"
