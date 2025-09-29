@@ -107,14 +107,14 @@ const Contacts = () => {
               <PhoneIcon />
               <div>
                 <h3 className="text-xl font-semibold text-white">Phone:</h3>
-                <a href="tel:+1289380718" className="text-white hover:underline">+1-289-380-718</a>
+                <a href="tel:+1289380718" className="text-white hover:text-blue-600">+1-289-380-718</a>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <EmailIcon />
               <div>
                 <h3 className="text-xl font-semibold text-white">Email:</h3>
-                <p>admin@alertgroup.ca</p>
+                <a href="mailto:admin@alertgroup.ca" className="text-white hover:text-blue-600">admin@alertgroup.ca</a>
               </div>
             </div>
             <div className="flex items-center gap-4">
