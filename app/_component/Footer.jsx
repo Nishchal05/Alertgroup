@@ -57,7 +57,7 @@ const Footer = () => {
               <PhoneCall style={{
               color:'	#00078c',
             }} />
-              <span>Phone: +1 (289) 380-7181</span>
+              <span>Phone: +1 (647) 771-9680</span>
             </p>
             <p className="flex items-center space-x-2">
               <Email style={{
