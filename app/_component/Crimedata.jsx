@@ -18,14 +18,15 @@ import {
 } from "@/components/ui/chart"
 import Aos from "aos"
 const chartData = [
-  { Year: "2017", CSI: 72.9 },
-  { Year: "2018", CSI: 75.6 },
-  { Year: "2019", CSI: 79.5 },
-  { Year: "2020", CSI: 73.4 },
-  { Year: "2021", CSI: 73.7 },
-  { Year: "2022", CSI: 77.0 },
-  { Year: "2023", CSI: 78.6 },
-]
+  { Year: "2017", CSI: 72.0 },
+  { Year: "2018", CSI: 73.6 },
+  { Year: "2019", CSI: 75.6 },
+  { Year: "2020", CSI: 79.7 },
+  { Year: "2021", CSI: 73.9 },
+  { Year: "2022", CSI: 74.9 },
+  { Year: "2023", CSI: 78.8 },
+  { Year: "2024", CSI: 77.9 }
+];
 
 const chartConfig = {
   CSI: {
