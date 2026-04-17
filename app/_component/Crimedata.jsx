@@ -25,7 +25,8 @@ const chartData = [
   { Year: "2021", CSI: 73.9 },
   { Year: "2022", CSI: 74.9 },
   { Year: "2023", CSI: 78.8 },
-  { Year: "2024", CSI: 77.9 }
+  { Year: "2024", CSI: 77.9 },
+  { Year: "2025", CSI: 77.3 }
 ];
 
 const chartConfig = {
@@ -46,7 +47,7 @@ export function Crimedata() {
       <Card className="h-auto w-full max-w-4xl bg-black shadow-lg rounded-lg overflow-hidden"> 
         <CardHeader className="border-b border-gray-700 pb-4">
           <CardTitle className="text-lg text-white md:text-2xl">Crime Severity Index (CSI)</CardTitle>
-          <CardDescription className="text-gray-400">Yearly Data from 2017 - 2024</CardDescription>
+          <CardDescription className="text-gray-400">Yearly Data from 2017 - 2025</CardDescription>
         </CardHeader>
 
         <CardContent className="h-100 p-6 md:h-96">
