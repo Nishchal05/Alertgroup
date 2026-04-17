@@ -46,7 +46,7 @@ export function Crimedata() {
       <Card className="h-auto w-full max-w-4xl bg-black shadow-lg rounded-lg overflow-hidden"> 
         <CardHeader className="border-b border-gray-700 pb-4">
           <CardTitle className="text-lg text-white md:text-2xl">Crime Severity Index (CSI)</CardTitle>
-          <CardDescription className="text-gray-400">Yearly Data from 2017 - 2023</CardDescription>
+          <CardDescription className="text-gray-400">Yearly Data from 2017 - 2024</CardDescription>
         </CardHeader>
 
         <CardContent className="h-100 p-6 md:h-96">
