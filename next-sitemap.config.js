@@ -1,6 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: 'https://yourdomain.com', // replace with your actual domain
+    siteUrl: 'https://alertgroup.ca',
     generateRobotsTxt: true, // also generate robots.txt
-  };
-  
+  };

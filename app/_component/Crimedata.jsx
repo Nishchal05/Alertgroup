@@ -51,7 +51,6 @@ export function Crimedata() {
         </CardHeader>
 
         <CardContent className="h-100 p-6 md:h-96">
-          {/* Ensure ChartContainer is properly used here */}
           <ChartContainer config={chartConfig} className="h-full w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
